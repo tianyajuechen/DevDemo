@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- _50 表示50%透明度 -->
+    <color name="white">#ffffff</color>
+    <color name="white_50">#80ffffff</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="red">#ff0000</color>
+    <color name="black">#000000</color>
+    <color name="light_yellow">#ff8c19</color>
+    <color name="light_gray">#999999</color>
+    <color name="gray">#666666</color>
+    <color name="dark_gray">#333333</color>
+    <color name="color_303849">#303849</color>
+    <color name="color_566B96">#566b96</color>
+    <color name="color_6f81a5">#6f81a5</color>
+    <color name="color_e9f5ff">#e9f5ff</color>
+    <color name="color_0287fe">#0287fe</color>
+    <color name="color_fcae52">#fcae52</color>
+    <color name="color_fdc975">#fdc975</color>
+    <color name="color_ffe599">#ffe599</color>
+    <color name="color_fff5d8">#fff5d8</color>
+    <color name="color_ff8c19">#ff8c19</color>
+    <color name="color_ff8c19_50">#80ff8c19</color>
+    <color name="color_ff5256">#ff5256</color>
+    <color name="color_ff8689">#ff8689</color>
+    <color name="color_ffacad">#ffacad</color>
+    <color name="color_ffe3e3">#ffe3e3</color>
+    <color name="color_ff2c3c">#ff2c3c</color>
+    <color name="color_ff2626">#ff2626</color>
+    <color name="color_ff2626_50">#80ff2626</color>
+    <color name="color_ff4d4d">#ff4d4d</color>
+    <color name="color_55a500">#55a500</color>
+    <color name="color_5dcd0b">#5dcd0b</color>
+    <color name="color_5dcd0b_50">#805dcd0b</color>
+    <color name="color_8cce60">#8cce60</color>
+    <color name="color_c8e657">#c8e657</color>
+    <color name="color_f2f2f2">#f2f2f2</color>
+    <color name="color_f5f4f9">#f5f4f9</color>
+    <color name="color_faf3ea">#faf3ea</color>
+    <color name="color_dddddd">#dddddd</color>
+    <color name="color_cccccc">#cccccc</color>
+
+    <color name="google_red">#d62d20</color>
+    <color name="google_blue">#0057e7</color>
+    <color name="google_green">#008744</color>
+    <color name="google_yellow">#ffa700</color>
+
+</resources>

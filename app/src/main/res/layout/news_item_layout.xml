@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="15dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="6dp"
+    app:cardBackgroundColor="@color/color_c8e657"
+    app:cardCornerRadius="6dp"
+    app:contentPadding="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,6 +31,7 @@
 
             <TextView
                 android:id="@+id/tv_date"
+                android:text="1111"
                 style="@style/Text_LtGray_10sp"
                 android:layout_gravity="right"/>
 
@@ -42,4 +48,4 @@
 
     </RelativeLayout>
 
-</LinearLayout>
+</android.support.v7.widget.CardView>

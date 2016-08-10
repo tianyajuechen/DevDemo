@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.example.refreshdemo.MyCallback;
 import com.example.refreshdemo.R;
 import com.example.refreshdemo.adapter.NewsAdapter;
 import com.example.refreshdemo.application.MyApp;
@@ -72,11 +73,11 @@ public class RefreshActivity2 extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 mPage = 0;
-                getNews();
+                getNews2();
             }
         });
 
-        getNews();
+        getNews2();
     }
 
     private void getNews() {
@@ -105,6 +106,34 @@ public class RefreshActivity2 extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<NewsResp> call, Throwable t) {
+                mSrl.setRefreshing(false);
+            }
+        });
+    }
+
+    private void getNews2() {
+        Map<String, String> params = new HashMap<>();
+        params.put("num", "10");
+        params.put("page", mPage + "");
+        Call<NewsResp> call = MyApp.getInstance().mApiService.getNews(params);
+        call.enqueue(new MyCallback<NewsResp>() {
+            @Override
+            public void onSuccess(NewsResp newsResp) {
+                mSrl.setRefreshing(false);
+                if (newsResp.getCode() != 200) {
+                    return;
+                }
+                if (newsResp.getNewslist() != null && newsResp.getNewslist().size() > 0) {
+                    if (mPage < 1)
+                        mNews.clear();
+                    mNews.addAll(newsResp.getNewslist());
+                    mAdapter.notifyDataSetChanged();
+                    mPage++;
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
                 mSrl.setRefreshing(false);
             }
         });

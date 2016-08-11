@@ -45,12 +45,12 @@ public class RefreshActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_refresh3);
         ButterKnife.bind(this);
 
-        mPage = 0;
+        mPage = 1;
         mNews = new ArrayList<>();
 
         mAdapter = new QuickAdapter(mNews, this);
-        mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
-        mAdapter.isFirstOnly(false);
+        /*mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
+        mAdapter.isFirstOnly(false);*/
         mAdapter.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, final int i) {
@@ -82,7 +82,8 @@ public class RefreshActivity3 extends AppCompatActivity {
                 }
             }
         });
-        mAdapter.openLoadMore(true);
+
+        mAdapter.openLoadMore(10, true);
         mAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
@@ -95,7 +96,7 @@ public class RefreshActivity3 extends AppCompatActivity {
         mRv.setItemAnimator(new DefaultItemAnimator());
         mRv.addItemDecoration(new RecyclerViewItemDecoration(10));
         mRv.setAdapter(mAdapter);
-        mRv.setOnScrollListener(new RecyclerView.OnScrollListener() {
+        /*mRv.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
@@ -106,7 +107,7 @@ public class RefreshActivity3 extends AppCompatActivity {
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
             }
-        });
+        });*/
 
         getNews();
     }
@@ -131,10 +132,11 @@ public class RefreshActivity3 extends AppCompatActivity {
                     } else {
                         mAdapter.addData(response.body().getNewslist());
                     }*/
-                    if (mPage < 1)
+                    if (mPage < 2)
                         mNews.clear();
                     mNews.addAll(response.body().getNewslist());
-                    mAdapter.notifyDataSetChanged();
+                    mAdapter.notifyDataChangedAfterLoadMore(true);
+                    //mAdapter.notifyDataSetChanged();
                     mPage++;
                 }
             }

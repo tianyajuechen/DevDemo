@@ -1,14 +1,13 @@
 package com.example.refreshdemo.activity;
 
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import com.example.refreshdemo.MyCallback;
 import com.example.refreshdemo.R;
 import com.example.refreshdemo.adapter.NewsAdapter;
@@ -16,17 +15,14 @@ import com.example.refreshdemo.application.MyApp;
 import com.example.refreshdemo.bean.NewsBean;
 import com.example.refreshdemo.bean.NewsResp;
 import com.example.refreshdemo.widget.RecyclerViewItemDecoration;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class RefreshActivity2 extends AppCompatActivity {
 
@@ -54,18 +50,6 @@ public class RefreshActivity2 extends AppCompatActivity {
         mRv.setItemAnimator(new DefaultItemAnimator());
         mRv.addItemDecoration(new RecyclerViewItemDecoration(10));
         mRv.setAdapter(mAdapter);
-        mRv.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                //if (newState == RecyclerView.SCROLL_STATE_IDLE && )
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-            }
-        });
 
         mSrl.setColorSchemeResources(R.color.google_blue, R.color.google_green, R.color.google_red, R.color.google_yellow);
         mSrl.setProgressBackgroundColorSchemeResource(R.color.color_5dcd0b);

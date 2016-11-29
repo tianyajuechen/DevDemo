@@ -2,14 +2,15 @@ package com.example.refreshdemo.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.refreshdemo.R;
 import com.example.refreshdemo.adapter.QuickAdapter;
@@ -17,17 +18,14 @@ import com.example.refreshdemo.application.MyApp;
 import com.example.refreshdemo.bean.NewsBean;
 import com.example.refreshdemo.bean.NewsResp;
 import com.example.refreshdemo.widget.RecyclerViewItemDecoration;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class RefreshActivity3 extends AppCompatActivity {
@@ -91,7 +89,7 @@ public class RefreshActivity3 extends AppCompatActivity {
             }
         });
 
-
+        Log.e("recyclerView:", "height=" + mRv.getHeight() + "----" + mRv.getMeasuredHeight() + "----" + mRv.getMeasuredHeightAndState());
         mRv.setLayoutManager(new LinearLayoutManager(this));
         mRv.setItemAnimator(new DefaultItemAnimator());
         mRv.addItemDecoration(new RecyclerViewItemDecoration(10));
@@ -109,12 +107,12 @@ public class RefreshActivity3 extends AppCompatActivity {
             }
         });*/
 
-        getNews();
+        //getNews();
     }
 
     private void getNews() {
         Map<String, String> params = new HashMap<>();
-        params.put("num", "10");
+        params.put("num", "1");
         params.put("page", mPage + "");
         Call<NewsResp> call = MyApp.getInstance().mApiService.getNews(params);
         call.enqueue(new Callback<NewsResp>() {
@@ -139,6 +137,7 @@ public class RefreshActivity3 extends AppCompatActivity {
                     //mAdapter.notifyDataSetChanged();
                     mPage++;
                 }
+
             }
 
             @Override

@@ -20,13 +20,11 @@
             android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
 
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
         </activity>
         <activity android:name=".activity.RefreshActivity1"/>
 
@@ -45,11 +43,11 @@
         <activity
                 android:name=".activity.DataBindingActivity"
                 android:label="DataBindingDemo">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            </intent-filter>-->
         </activity>
     </application>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.refreshdemo">
+          package="com.tzy.demo">
 
     <!-- 网络 -->
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -12,43 +12,41 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
-            android:name=".application.MyApp"
+            android:name="com.tzy.demo.application.MyApp"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-
+        <activity android:name="com.tzy.demo.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activity.RefreshActivity1"/>
-
-        <activity
-                android:name=".activity.RefreshActivity2"
-                android:label="@string/title_activity_refresh2"/>
-
-        <activity
-                android:name=".activity.RefreshActivity3"
-                android:label="@string/title_activity_refresh3"/>
-
-        <activity android:name=".activity.Test">
-
-        </activity>
-
-        <activity
-                android:name=".activity.DataBindingActivity"
-                android:label="DataBindingDemo">
-            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>-->
+            </intent-filter>
         </activity>
+        <activity android:name=".activity.recyclerviewrefresh.RefreshActivity1"/>
+        <activity
+                android:name=".activity.recyclerviewrefresh.RefreshActivity2"
+                android:label="@string/title_activity_refresh2"/>
+        <activity
+                android:name=".activity.recyclerviewrefresh.RefreshActivity3"
+                android:label="@string/title_activity_refresh3"/>
+        <activity android:name=".activity.takephoto.TakePhotoActivity">
+        </activity>
+        <activity
+                android:name=".activity.mvvm.DataBindingActivity"
+                android:label="DataBindingDemo">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            -->
+        </activity>
+
     </application>
 
 </manifest>

@@ -19,11 +19,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name="com.tzy.demo.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            
         </activity>
         <activity android:name=".activity.recyclerviewrefresh.RefreshActivity1"/>
         <activity
@@ -33,6 +29,11 @@
                 android:name=".activity.recyclerviewrefresh.RefreshActivity3"
                 android:label="@string/title_activity_refresh3"/>
         <activity android:name=".activity.takephoto.TakePhotoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+        
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity
                 android:name=".activity.mvvm.DataBindingActivity"

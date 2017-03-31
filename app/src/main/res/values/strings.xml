@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">RefreshDemo</string>
     <string name="title_activity_refresh2">RefreshActivity2</string>
-
+    
     <string name="title_activity_refresh3">RefreshActivity3</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>

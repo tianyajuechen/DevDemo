@@ -9,5 +9,5 @@ public class Urls {
 
     public static String BaseUrl = "http://www.baidu.com/";
 
-    public static final String BaiduKey = "4d784dfbfb96fc45a1c3427ba6219c5b";
+    public static final String NewsKey = "27c0dc2798c1cfe2d583385a4e92a1f8";
 }

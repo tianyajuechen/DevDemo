@@ -10,8 +10,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
-import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,16 +18,8 @@ import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.tzy.demo.R;
-import com.tzy.demo.application.MyApp;
-import com.tzy.demo.bean.BaiduTokenBean;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
 
 public class TakePhotoActivity extends AppCompatActivity {
 
@@ -45,10 +35,8 @@ public class TakePhotoActivity extends AppCompatActivity {
     public static final int CAMERA_REQUEST_CODE = 1;
     public static final int GALLERY_REQUEST_CODE = 2;
     public static final int CROP_REQUEST_CODE = 3;
-    private static final String TAG = "TakePhotoActivity";
 
     private Uri mPhotoUri;//调用相机拍照后图片的uri
-    private String mBaiduToken;
 
 
     @Override
@@ -75,7 +63,6 @@ public class TakePhotoActivity extends AppCompatActivity {
             }
         });
 
-        getBaiduToken();
     }
 
     @Override
@@ -84,17 +71,15 @@ public class TakePhotoActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case CAMERA_REQUEST_CODE:
-                    /*if (mPhotoUri != null) {
+                    if (mPhotoUri != null) {
                         zoomPhoto(mPhotoUri);
-                    }*/
-                    base64Encode(getFilePath(mPhotoUri));
+                    }
                     break;
 
                 case GALLERY_REQUEST_CODE:
-                    /*if (data != null) {
+                    if (data != null) {
                         zoomPhoto(data.getData());
-                    }*/
-                    base64Encode(getFilePath(data.getData()));
+                    }
 
                     break;
 
@@ -131,39 +116,6 @@ public class TakePhotoActivity extends AppCompatActivity {
         }
         return path;
     }
-
-    private void base64Encode(String path) {
-        if (TextUtils.isEmpty(path)) return;
-
-        File file = new File(path);
-        FileInputStream inputFile = null;
-        try {
-            inputFile = new FileInputStream(file);
-            byte[] buffer = new byte[(int) file.length()];
-            inputFile.read(buffer);
-            inputFile.close();
-            String encodedString = Base64.encodeToString(buffer, Base64.NO_WRAP);
-            toBaidu(encodedString);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-        /*//decode to bitmap
-        Bitmap bitmap = BitmapFactory.decodeFile(path);
-        Log.d(TAG, "bitmap width: " + bitmap.getWidth() + " height: " + bitmap.getHeight());
-        //convert to byte array
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-        byte[] bytes = baos.toByteArray();
-
-        //base64 encode
-        //byte[] encode = Base64.encode(bytes,Base64.DEFAULT);
-        String encodeString = Base64.encodeToString(bytes, Base64.DEFAULT);
-        toBaidu(encodeString);*/
-    }
-
 
     private boolean setPhotoPath() {
         File cacheDir = this.getExternalCacheDir();
@@ -249,50 +201,5 @@ public class TakePhotoActivity extends AppCompatActivity {
             return null;
         }
 
-    }
-
-    private void getBaiduToken() {
-        Map<String, String> params = new HashMap<>();
-        params.put("grant_type", "client_credentials");
-        params.put("client_id", "l5GAO4RbvAlVneiGxAvbpjLx");
-        params.put("client_secret", "OBRtG781XykmwVzkuZEaBPjpoBoi0muQ");
-        Call<BaiduTokenBean> call = MyApp.getInstance().mApiService.getBaiduToken(params);
-        call.enqueue(new Callback<BaiduTokenBean>() {
-            @Override
-            public void onResponse(Call<BaiduTokenBean> call, Response<BaiduTokenBean> response) {
-                mBaiduToken = response.body().getAccess_token();
-                tv.setText(mBaiduToken);
-            }
-
-            @Override
-            public void onFailure(Call<BaiduTokenBean> call, Throwable throwable) {
-            }
-        });
-    }
-
-    private void toBaidu(String base64Encode) {
-        Map<String, String> params = new HashMap<>();
-        params.put("access_token", mBaiduToken);
-        params.put("image", base64Encode);
-        Call<ResponseBody> call = MyApp.getInstance().mApiService.baidu(params);
-        call.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if (response.isSuccessful()) {
-                    try {
-                        tv.setText(response.body().string());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable throwable) {
-                if (throwable == null) {
-
-                }
-            }
-        });
     }
 }

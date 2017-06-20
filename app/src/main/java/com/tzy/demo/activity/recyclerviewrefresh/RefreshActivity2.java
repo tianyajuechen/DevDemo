@@ -12,17 +12,12 @@ import com.tzy.demo.MyCallback;
 import com.tzy.demo.R;
 import com.tzy.demo.adapter.NewsAdapter;
 import com.tzy.demo.application.MyApp;
-import com.tzy.demo.bean.NewsBean;
-import com.tzy.demo.bean.NewsResp;
+import com.tzy.demo.bean.JuHeResp;
+import com.tzy.demo.bean.WeChatNewsBean;
 import com.tzy.demo.widget.RecyclerViewItemDecoration;
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class RefreshActivity2 extends AppCompatActivity {
 
@@ -31,7 +26,7 @@ public class RefreshActivity2 extends AppCompatActivity {
     @Bind(R.id.srl)
     SwipeRefreshLayout mSrl;
 
-    private List<NewsBean> mNews;
+    private List<WeChatNewsBean> mNews;
     private NewsAdapter mAdapter;
     private int mPage;
     private int mLastVisibleItem;
@@ -64,53 +59,21 @@ public class RefreshActivity2 extends AppCompatActivity {
         getNews2();
     }
 
-    private void getNews() {
-        Map<String, String> params = new HashMap<>();
-        params.put("num", "10");
-        params.put("page", mPage + "");
-        Call<NewsResp> call = MyApp.getInstance().mApiService.getNews(params);
-        call.enqueue(new Callback<NewsResp>() {
-            @Override
-            public void onResponse(Call<NewsResp> call, Response<NewsResp> response) {
-                mSrl.setRefreshing(false);
-                if (!response.isSuccessful()) {
-                    return;
-                }
-                if (response.body().getCode() != 200) {
-                    return;
-                }
-                if (response.body().getNewslist() != null && response.body().getNewslist().size() > 0) {
-                    if (mPage < 1)
-                        mNews.clear();
-                    mNews.addAll(response.body().getNewslist());
-                    mAdapter.notifyDataSetChanged();
-                    mPage++;
-                }
-            }
-
-            @Override
-            public void onFailure(Call<NewsResp> call, Throwable t) {
-                mSrl.setRefreshing(false);
-            }
-        });
-    }
-
     private void getNews2() {
         Map<String, String> params = new HashMap<>();
-        params.put("num", "10");
-        params.put("page", mPage + "");
-        Call<NewsResp> call = MyApp.getInstance().mApiService.getNews(params);
-        call.enqueue(new MyCallback<NewsResp>() {
+        params.put("ps", "10");
+        params.put("pno", mPage + "");
+        Call<JuHeResp> call = MyApp.getInstance().mApiService.getNews(params);
+        call.enqueue(new MyCallback<JuHeResp>() {
             @Override
-            public void onSuccess(NewsResp newsResp) {
+            public void onSuccess(JuHeResp newsResp) {
                 mSrl.setRefreshing(false);
-                if (newsResp.getCode() != 200) {
-                    return;
-                }
-                if (newsResp.getNewslist() != null && newsResp.getNewslist().size() > 0) {
+                if (newsResp.getResult() == null) return;
+                List<WeChatNewsBean> list = newsResp.getResult().getList();
+                if (list != null && list.size() > 0) {
                     if (mPage < 1)
                         mNews.clear();
-                    mNews.addAll(newsResp.getNewslist());
+                    mNews.addAll(list);
                     mAdapter.notifyDataSetChanged();
                     mPage++;
                 }

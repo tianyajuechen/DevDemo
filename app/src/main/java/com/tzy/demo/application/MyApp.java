@@ -2,11 +2,13 @@ package com.tzy.demo.application;
 
 import android.app.Application;
 import android.content.Context;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.tencent.bugly.crashreport.CrashReport;
+import com.tzy.demo.BuildConfig;
 import com.tzy.demo.api.APIService;
 import com.tzy.demo.finals.Urls;
 import com.tzy.demo.okhttp.OkHttpUtil;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -20,7 +22,9 @@ public class MyApp extends Application {
     public Retrofit mRetrofit;
     public APIService mApiService;
 
-    /**请求队列*/
+    /**
+     * 请求队列
+     */
 
     @Override
     public void onCreate() {
@@ -29,6 +33,12 @@ public class MyApp extends Application {
         mContext = this.getApplicationContext();
 
         initRetrofit();
+
+        //腾讯Bugly初始化
+        CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(getApplicationContext());
+        strategy.setAppChannel("官方");
+        CrashReport.initCrashReport(getApplicationContext(), "da37a68e8a", BuildConfig.DEBUG, strategy);
+        CrashReport.putUserData(this, "UMengId", "123456");
     }
 
     public static MyApp getInstance() {

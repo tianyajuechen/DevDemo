@@ -7,25 +7,23 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import com.tzy.demo.R;
 import com.tzy.demo.adapter.NewsAdapter;
 import com.tzy.demo.application.MyApp;
-import com.tzy.demo.bean.NewsBean;
-import com.tzy.demo.bean.NewsResp;
+import com.tzy.demo.bean.JuHeResp;
+import com.tzy.demo.bean.WeChatNewsBean;
 import com.tzy.demo.widget.PullToRefreshLayout;
 import com.tzy.demo.widget.RefreshLayout;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class RefreshActivity1 extends AppCompatActivity {
 
@@ -34,7 +32,7 @@ public class RefreshActivity1 extends AppCompatActivity {
     @Bind(R.id.refresh_layout)
     RefreshLayout mRefreshLayout;
 
-    private List<NewsBean> mNews;
+    private List<WeChatNewsBean> mNews;
     private NewsAdapter mAdapter;
     private int mPage;
 
@@ -81,29 +79,28 @@ public class RefreshActivity1 extends AppCompatActivity {
 
     private void getNews() {
         Map<String, String> params = new HashMap<>();
-        params.put("num", "10");
-        params.put("page", mPage + "");
-        Call<NewsResp> call = MyApp.getInstance().mApiService.getNews(params);
-        call.enqueue(new Callback<NewsResp>() {
+        params.put("ps", "10");
+        params.put("pno", mPage + "");
+        Call<JuHeResp> call = MyApp.getInstance().mApiService.getNews(params);
+        call.enqueue(new Callback<JuHeResp>() {
             @Override
-            public void onResponse(Call<NewsResp> call, Response<NewsResp> response) {
+            public void onResponse(Call<JuHeResp> call, Response<JuHeResp> response) {
                 if (!response.isSuccessful()) {
                     return;
                 }
-                if (response.body().getCode() != 200) {
-                    return;
-                }
-                if (response.body().getNewslist() != null && response.body().getNewslist().size() > 0) {
+                if (response.body().getResult() == null) return;
+                List<WeChatNewsBean> list = response.body().getResult().getList();
+                if (list != null && list.size() > 0) {
                     if (mPage < 1)
                         mNews.clear();
-                    mNews.addAll(response.body().getNewslist());
+                    mNews.addAll(list);
                     mAdapter.notifyDataSetChanged();
                     mPage++;
                 }
             }
 
             @Override
-            public void onFailure(Call<NewsResp> call, Throwable t) {
+            public void onFailure(Call<JuHeResp> call, Throwable t) {
 
             }
         });

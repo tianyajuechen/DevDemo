@@ -7,12 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.bumptech.glide.Glide;
-import com.tzy.demo.R;
-import com.tzy.demo.bean.NewsBean;
-import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import com.bumptech.glide.Glide;
+import com.tzy.demo.R;
+import com.tzy.demo.bean.WeChatNewsBean;
+
+import java.util.List;
 
 /**
  * Created by YANG
@@ -22,9 +23,9 @@ import butterknife.ButterKnife;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     private Context mContext;
-    private List<NewsBean> mNews;
+    private List<WeChatNewsBean> mNews;
 
-    public NewsAdapter(Context mContext, List<NewsBean> mNews) {
+    public NewsAdapter(Context mContext, List<WeChatNewsBean> mNews) {
         this.mContext = mContext;
         this.mNews = mNews;
     }
@@ -36,10 +37,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int i) {
-        Glide.with(mContext).load(mNews.get(i).getPicUrl()).into(holder.mIv);
-        holder.mTvDate.setText(mNews.get(i).getCtime());
+        Glide.with(mContext).load(mNews.get(i).getFirstImg()).into(holder.mIv);
+        holder.mTvDate.setText(mNews.get(i).getId());
         holder.mTvTitle.setText(mNews.get(i).getTitle());
-        holder.mTvDesc.setText(mNews.get(i).getDescription());
+        holder.mTvDesc.setText(mNews.get(i).getSource());
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.tzy.demo.api;
 
 import com.tzy.demo.bean.BaiduTokenBean;
-import com.tzy.demo.bean.NewsResp;
+import com.tzy.demo.bean.JuHeResp;
 import com.tzy.demo.finals.Urls;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -16,9 +16,8 @@ import java.util.Map;
  */
 public interface APIService {
 
-    @GET("http://apis.baidu.com/txapi/keji/keji")
-    @Headers("apikey:" + Urls.BaiduKey)
-    Call<NewsResp> getNews(@QueryMap Map<String, String> params);
+    @GET("http://v.juhe.cn/weixin/query?key=" + Urls.NewsKey)
+    Call<JuHeResp> getNews(@QueryMap Map<String, String> params);
 
     @FormUrlEncoded
     @POST("https://aip.baidubce.com/rest/2.0/ocr/v1/general")
@@ -27,4 +26,8 @@ public interface APIService {
     @FormUrlEncoded
     @POST("https://aip.baidubce.com/oauth/2.0/token")
     Call<BaiduTokenBean> getBaiduToken(@FieldMap Map<String, String> params);
+
+    @GET("http://dynamic-image.yesky.com/1080x-/uploadImages/2015/141/13/YK62BBX9GNC1.jpg")
+    Call<ResponseBody> getImage();
+
 }

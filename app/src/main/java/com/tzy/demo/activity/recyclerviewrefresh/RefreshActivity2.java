@@ -6,24 +6,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import com.tzy.demo.MyCallback;
 import com.tzy.demo.R;
 import com.tzy.demo.adapter.NewsAdapter;
 import com.tzy.demo.application.MyApp;
 import com.tzy.demo.bean.JuHeResp;
 import com.tzy.demo.bean.WeChatNewsBean;
+import com.tzy.demo.okhttp.MyCallback;
 import com.tzy.demo.widget.RecyclerViewItemDecoration;
 import retrofit2.Call;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class RefreshActivity2 extends AppCompatActivity {
 
-    @Bind(R.id.rv)
+    @BindView(R.id.rv)
     RecyclerView mRv;
-    @Bind(R.id.srl)
+    @BindView(R.id.srl)
     SwipeRefreshLayout mSrl;
 
     private List<WeChatNewsBean> mNews;
@@ -84,5 +87,9 @@ public class RefreshActivity2 extends AppCompatActivity {
                 mSrl.setRefreshing(false);
             }
         });
+    }
+    
+    private void getNews3() {
+        
     }
 }

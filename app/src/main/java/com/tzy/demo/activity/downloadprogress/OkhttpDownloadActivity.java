@@ -9,7 +9,7 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.tzy.demo.R;
 import okhttp3.*;
@@ -24,17 +24,17 @@ import java.io.*;
  */
 public class OkhttpDownloadActivity extends Activity {
 
-    @Bind(R.id.tv_pb)
+    @BindView(R.id.tv_pb)
     ProgressBar pb;
-    @Bind(R.id.tv_percent)
+    @BindView(R.id.tv_percent)
     TextView tvPercent;
-    @Bind(R.id.bt_download)
+    @BindView(R.id.bt_download)
     Button btDownload;
-    @Bind(R.id.activity_okhttp_download)
+    @BindView(R.id.activity_okhttp_download)
     LinearLayout activityOkhttpDownload;
-    @Bind(R.id.tv_error_msg)
+    @BindView(R.id.tv_error_msg)
     TextView tvErrorMsg;
-    @Bind(R.id.bt_install)
+    @BindView(R.id.bt_install)
     Button btInstall;
 
     private static final String TAG = "download";

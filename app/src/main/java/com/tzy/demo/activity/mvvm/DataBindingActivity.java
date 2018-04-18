@@ -13,6 +13,7 @@ public class DataBindingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         TestBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_data_binding);
         User user = new User("Tang", "Zhaoyang");
         binding.setUser(user);

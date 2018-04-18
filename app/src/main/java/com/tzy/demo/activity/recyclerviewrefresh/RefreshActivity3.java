@@ -7,7 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.tzy.demo.R;
@@ -28,7 +28,7 @@ import java.util.Map;
 
 public class RefreshActivity3 extends AppCompatActivity {
 
-    @Bind(R.id.rv)
+    @BindView(R.id.rv)
     RecyclerView mRv;
 
     private List<WeChatNewsBean> mNews;

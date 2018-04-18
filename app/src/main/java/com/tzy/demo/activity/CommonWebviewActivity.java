@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -18,15 +17,9 @@ import android.webkit.*;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import com.tzy.demo.BaseWebviewActivity;
 import com.tzy.demo.R;
-import com.tzy.demo.finals.Constants;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 /**
  * Created by YANG
@@ -34,11 +27,11 @@ import java.lang.reflect.Method;
  */
 public class CommonWebviewActivity extends BaseWebviewActivity {
 
-    @Bind(R.id.pb)
+    @BindView(R.id.pb)
     ProgressBar pb;
-    @Bind(R.id.webview)
+    @BindView(R.id.webview)
     WebView webview;
-    @Bind(R.id.bt)
+    @BindView(R.id.bt)
     Button bt;
 
     private String mUrl;
@@ -55,7 +48,8 @@ public class CommonWebviewActivity extends BaseWebviewActivity {
         ButterKnife.bind(this);
         super.onCreate(savedInstanceState);
 
-        mUrl = getIntent().getStringExtra(Constants.URL_PATH);
+        //mUrl = getIntent().getStringExtra(Constants.URL_PATH);
+        mUrl = "http://192.168.1.65/test/test.html";
         if (TextUtils.isEmpty(mUrl)) {
             //MyLog.e(TAG, "you must put url to this class");
             finish();
@@ -69,33 +63,14 @@ public class CommonWebviewActivity extends BaseWebviewActivity {
         webview.getSettings().setDomStorageEnabled(true);
         webview.getSettings().setDatabaseEnabled(true);
         webview.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
+        webview.addJavascriptInterface(new JsInterface(), "control");
         webview.loadUrl(mUrl);
         Log.e("webview_url", mUrl);
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String insert = "document.getElementsByName('searchword')[0].value = \"网络公司\";";
-                final String click = "document.getElementById('btn_query').click();";
-
-                webview.evaluateJavascript(insert, new ValueCallback<String>() {
-                    @Override
-                    public void onReceiveValue(String s) {
-                        Toast.makeText(CommonWebviewActivity.this, s, 1000).show();
-                    }
-                });
-
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        webview.evaluateJavascript(click, new ValueCallback<String>() {
-                            @Override
-                            public void onReceiveValue(String s) {
-                                Toast.makeText(CommonWebviewActivity.this, s, 1000).show();
-                            }
-                        });
-                    }
-                }, 1000);
+                webview.loadUrl("javascript:test2()");
             }
         });
     }
@@ -246,41 +221,11 @@ public class CommonWebviewActivity extends BaseWebviewActivity {
         super.onConfigurationChanged(newConfig);
     }
 
-    public String stringByEvaluatingJavaScriptFromString(String script) {
-        try {
-            //由webview取到webviewcore
-            Field field_webviewcore = WebView.class.getDeclaredField("mWebViewCore");
-            field_webviewcore.setAccessible(true);
-            Object obj_webviewcore = field_webviewcore.get(this);
-            //由webviewcore取到BrowserFrame
-            Field field_BrowserFrame = obj_webviewcore.getClass().getDeclaredField("mBrowserFrame");
-            field_BrowserFrame.setAccessible(true);
-            Object obj_frame = field_BrowserFrame.get(obj_webviewcore);
-            //获取BrowserFrame对象的stringByEvaluatingJavaScriptFromString方法
-            Method method_stringByEvaluatingJavaScriptFromString = obj_frame.getClass().getMethod("stringByEvaluatingJavaScriptFromString", String.class);
-            //执行stringByEvaluatingJavaScriptFromString方法
-            Object obj_value = method_stringByEvaluatingJavaScriptFromString.invoke(obj_frame, script);
-            //返回执行结果
-            return String.valueOf(obj_value);
-        } catch (SecurityException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (NoSuchFieldException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IllegalArgumentException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+    private class JsInterface {
+        @JavascriptInterface
+        public void testApp(String s) {
+            Toast.makeText(CommonWebviewActivity.this, s, Toast.LENGTH_SHORT).show();
         }
-        return null;
+
     }
 }

@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.tzy.demo.R;
 
@@ -23,13 +23,13 @@ import java.io.*;
 
 public class TakePhotoActivity extends AppCompatActivity {
 
-    @Bind(R.id.iv)
+    @BindView(R.id.iv)
     ImageView iv;
-    @Bind(R.id.bt_camera)
+    @BindView(R.id.bt_camera)
     Button btCamera;
-    @Bind(R.id.bt_gallery)
+    @BindView(R.id.bt_gallery)
     Button btGallery;
-    @Bind(R.id.tv)
+    @BindView(R.id.tv)
     TextView tv;
 
     public static final int CAMERA_REQUEST_CODE = 1;

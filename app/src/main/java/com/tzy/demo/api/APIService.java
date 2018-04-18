@@ -1,11 +1,11 @@
 package com.tzy.demo.api;
 
-import com.tzy.demo.bean.BaiduTokenBean;
 import com.tzy.demo.bean.JuHeResp;
 import com.tzy.demo.finals.Urls;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.http.*;
+import retrofit2.http.GET;
+import retrofit2.http.QueryMap;
 
 import java.util.Map;
 
@@ -19,15 +19,19 @@ public interface APIService {
     @GET("http://v.juhe.cn/weixin/query?key=" + Urls.NewsKey)
     Call<JuHeResp> getNews(@QueryMap Map<String, String> params);
 
-    @FormUrlEncoded
-    @POST("https://aip.baidubce.com/rest/2.0/ocr/v1/general")
-    Call<ResponseBody> baidu(@FieldMap Map<String, String> params);
-
-    @FormUrlEncoded
-    @POST("https://aip.baidubce.com/oauth/2.0/token")
-    Call<BaiduTokenBean> getBaiduToken(@FieldMap Map<String, String> params);
-
     @GET("http://dynamic-image.yesky.com/1080x-/uploadImages/2015/141/13/YK62BBX9GNC1.jpg")
     Call<ResponseBody> getImage();
+
+    @GET("http://bg.niu100.com/app/version?appName=niu100Apk")
+    Call<ResponseBody> getVersion1();
+
+    @GET("http://www.xuncloud.net")
+    Call<ResponseBody> getVersion2();
+
+    @GET("http://www.niu100.com")
+    Call<ResponseBody> getVersion3();
+
+    @GET("http://www.liangplus.com/v2.0/externalToken/pols?rankingTyp=17506&page=1&pageSize=5&polBkTestInfo=1&polPkStk=1")
+    Call<ResponseBody> test();
 
 }

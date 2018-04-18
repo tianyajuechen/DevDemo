@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.bumptech.glide.Glide;
 import com.tzy.demo.R;
@@ -49,13 +49,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.iv)
+        @BindView(R.id.iv)
         ImageView mIv;
-        @Bind(R.id.tv_date)
+        @BindView(R.id.tv_date)
         TextView mTvDate;
-        @Bind(R.id.tv_title)
+        @BindView(R.id.tv_title)
         TextView mTvTitle;
-        @Bind(R.id.tv_desc)
+        @BindView(R.id.tv_desc)
         TextView mTvDesc;
 
         public ViewHolder(View itemView) {

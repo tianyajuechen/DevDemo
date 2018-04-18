@@ -4,8 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.tencent.bugly.crashreport.CrashReport;
-import com.tzy.demo.BuildConfig;
 import com.tzy.demo.api.APIService;
 import com.tzy.demo.finals.Urls;
 import com.tzy.demo.okhttp.OkHttpUtil;
@@ -34,11 +32,16 @@ public class MyApp extends Application {
 
         initRetrofit();
 
-        //腾讯Bugly初始化
-        CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(getApplicationContext());
+
+        initBugly();
+    }
+
+    //腾讯Bugly初始化
+    private void initBugly() {
+        /*CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(getApplicationContext());
         strategy.setAppChannel("官方");
         CrashReport.initCrashReport(getApplicationContext(), "da37a68e8a", BuildConfig.DEBUG, strategy);
-        CrashReport.putUserData(this, "UMengId", "123456");
+        CrashReport.putUserData(this, "UMengId", "123456");*/
     }
 
     public static MyApp getInstance() {
@@ -56,7 +59,7 @@ public class MyApp extends Application {
         //设置Gson日期格式
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").create();
         mRetrofit = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(Urls.BaseUrl)
                 .client(OkHttpUtil.getInstance())
                 .build();

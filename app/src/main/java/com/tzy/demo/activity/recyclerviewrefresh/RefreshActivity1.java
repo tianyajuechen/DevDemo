@@ -7,7 +7,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.tzy.demo.R;
 import com.tzy.demo.adapter.NewsAdapter;
@@ -27,9 +27,9 @@ import java.util.Map;
 
 public class RefreshActivity1 extends AppCompatActivity {
 
-    @Bind(R.id.rv)
+    @BindView(R.id.rv)
     RecyclerView mRv;
-    @Bind(R.id.refresh_layout)
+    @BindView(R.id.refresh_layout)
     RefreshLayout mRefreshLayout;
 
     private List<WeChatNewsBean> mNews;

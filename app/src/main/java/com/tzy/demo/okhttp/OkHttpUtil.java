@@ -1,10 +1,7 @@
 package com.tzy.demo.okhttp;
 
 import com.tzy.demo.BuildConfig;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 import java.io.IOException;
@@ -24,7 +21,7 @@ public class OkHttpUtil {
         public Response intercept(Chain chain) throws IOException {
             Request request = chain.request().newBuilder()
                     //.header("Accept-Encoding", "gzip")
-                    //.addHeader("Accept-Encoding", "gzip")//加上这个后 balance接口获取不到数据
+                    .addHeader("Accept-Encoding", "gzip")//加上这个后 balance接口获取不到数据
                     //.addHeader("User-Agent", "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.23 Mobile Safari/537.36")
                     .build();
             return chain.proceed(request);

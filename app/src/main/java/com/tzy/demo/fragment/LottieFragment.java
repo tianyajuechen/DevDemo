@@ -50,8 +50,9 @@ public class LottieFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lottie, container, false);
         unbinder = ButterKnife.bind(this, view);
-        mLottieView.setImageAssetsFolder(mFolder);
-        mLottieView.setAnimation(mJson);
+//        mLottieView.setImageAssetsFolder(mFolder);
+//        mLottieView.setAnimation(mJson);
+        mLottieView.setAnimation("like.json");
         return view;
     }
 

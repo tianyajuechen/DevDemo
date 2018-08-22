@@ -1,11 +1,11 @@
 package com.tzy.demo.api;
 
 import com.tzy.demo.bean.JuHeResp;
+import com.tzy.demo.bean.TestHelloBean;
 import com.tzy.demo.finals.Urls;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.QueryMap;
+import retrofit2.http.*;
 
 import java.util.Map;
 
@@ -33,5 +33,9 @@ public interface APIService {
 
     @GET("http://www.liangplus.com/v2.0/externalToken/pols?rankingTyp=17506&page=1&pageSize=5&polBkTestInfo=1&polPkStk=1")
     Call<ResponseBody> test();
+
+    @Multipart
+    @POST("http://192.168.1.164:8088/test/hello")
+    Call<ResponseBody> testHello(@Part("who") String who, @Part("action") TestHelloBean action);
 
 }

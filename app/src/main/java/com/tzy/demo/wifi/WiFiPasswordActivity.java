@@ -15,6 +15,8 @@ import java.util.List;
 
 public class WiFiPasswordActivity extends Activity {
 
+    public static final String DATE_LIST = "DATE_LIST";
+    public static final String SWITCH = "SWITCH";
     private static final String TAG = "WiFiPasswordActivity";
 
     ListView mLv;

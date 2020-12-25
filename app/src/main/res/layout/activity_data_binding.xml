@@ -1,29 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <data class="TestBinding">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <data class="Test">
+        
         <import type="android.view.View"/>
+        <!--<import type="com.tzy.demo.bean.User"/>-->
+        <!--<import
+            alias="TempUser"
+            type="com.tzy.demo.bean.User"/>-->
+        
         <variable
-                name="user"
-                type="com.tzy.demo.bean.User"/>
+            name="user"
+            type="com.tzy.demo.bean.User"
+            />
+    
         <variable
-                name="presenter"
-                type="com.tzy.demo.presenter.Presenter1"/>
+            name="user2"
+            type="com.tzy.demo.bean.User2"
+            />
+        
+        <variable
+            name="presenter"
+            type="com.tzy.demo.presenter.Presenter1"
+            />
     </data>
+    
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:visibility='@{true ? View.VISIBLE : View.INVISIBLE}'
+            android:text='@{"姓名：" + user.name, default="默认值"}'
+            />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@{`年龄：` + user.age}"
+            />
+    
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@{`身高：` + user.height}"
+            />
+    
+        <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="40dp"
+            android:padding="10dp"
+            android:text="@={user.name}"
+            />
+    
+        <Button
+            android:id="@+id/bt1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/light_gray"
+            android:text="更改name和height的值"
+            android:onClick="@{presenter.changeName}"
+            />
+    
+        <Button
+            android:id="@+id/bt2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/light_gray"
+            android:text="更改name、age和height的值"
+            android:onClick="@{presenter.changeAge}"
+    
+            />
+    
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:visibility='@{true ? View.VISIBLE : View.INVISIBLE, default = "gone"}'
-                android:text='@{"FirstName: " + user.firstName}'
-                android:onClick="@{presenter.onFirstNameClick}"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:text="@{`LastName:` + user.lastName}"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:text='@{"姓名：" + user2.name, default="默认值2"}'
+            />
+    
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/light_gray"
+            android:text="测试ObservableField"
+            android:onClick="@{()->presenter.changeHeight(user2)}"
+        
+            />
     </LinearLayout>
+    
 </layout>

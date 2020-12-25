@@ -1,20 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tzy.demo">
-    
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tzy.demo"
+    >
     <!-- 网络 -->
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <!-- 网络状态 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <!-- 外部存储-写入 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <!-- 外部存储-读 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/> <!-- 网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> <!-- 外部存储-写入 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> <!-- 外部存储-读 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> <!-- 相机 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_LOGS"/>
-    
+    <uses-permission android:name="android.permission.READ_LOGS"/> <!-- 极光 -->
+    <permission
+        android:name="com.tzy.demo.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature"
+        /> <!-- Required  一些系统要求的权限，如访问网络等 -->
+    <uses-permission android:name="com.tzy.demo.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> <!-- Optional for location -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
     <application
         android:name=".application.MyApp"
         android:allowBackup="true"
@@ -22,34 +46,55 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activity.recyclerviewrefresh.TestRefreshActivity">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        >
+        <activity android:name=".activity.tablayout.TabLayoutActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
+        <activity android:name=".activity.memoryleak.TestLeakActivity">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>-->
+        </activity>
+        <activity android:name=".activity.memoryleak.MemoryLeakActivity"></activity> <!-- 推必达 -->
+        <meta-data
+            android:name="UPA_MPA_CHANNELID"
+            android:value="94716y26Bre"
+            ></meta-data>
+        <meta-data
+            android:name="UPA_MPA_APPKEY"
+            android:value="bM7vuq"
+            ></meta-data>
+
+        <activity android:name=".activity.recyclerviewrefresh.TestRefreshActivity"></activity>
         <activity android:name=".activity.recyclerviewrefresh.RefreshActivity1"/>
         <activity android:name=".activity.recyclerviewrefresh.RefreshActivity2"/>
         <activity android:name=".activity.recyclerviewrefresh.RefreshActivity3"/>
-        <activity android:name=".activity.takephoto.TakePhotoActivity">
-        </activity>
+        <activity android:name=".activity.takephoto.TakePhotoActivity"></activity>
         <activity android:name=".activity.mvvm.DataBindingActivity">
-    
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-        
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-            -->
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".activity.downloadprogress.OkhttpDownloadActivity">
-        </activity>
+        <activity android:name=".activity.downloadprogress.OkhttpDownloadActivity"></activity>
         <activity
             android:name=".activity.animator.ObjectAnimatorActivity"
-            android:label="ObjectAnimator">
-        </activity>
-        <activity android:name=".activity.CommonWebviewActivity">
-        </activity>
+            android:label="ObjectAnimator"
+            ></activity>
+        <activity android:name=".activity.CommonWebviewActivity"></activity>
         <activity android:name=".activity.animator.LottieActivity">
-    
+
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -58,20 +103,32 @@
             </intent-filter>
             -->
         </activity>
-        <activity android:name=".activity.animator.VectorDrawableActivity">
-        </activity>
-        <activity android:name=".activity.animator.TestAnimationActivity">
-        
-        </activity>
-        <activity android:name=".activity.netrequest.TestRequestActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-        
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-        
+        <activity android:name=".activity.animator.VectorDrawableActivity"></activity>
+        <activity android:name=".activity.animator.TestAnimationActivity"></activity>
+        <activity android:name=".activity.netrequest.TestRequestActivity"></activity>
         <activity android:name=".wifi.WiFiPasswordActivity"/>
+        <activity android:name=".activity.camera.CameraActivity"></activity>
+        <activity android:name=".activity.camera.Camera2Activity"></activity>
+        <activity android:name=".sms.ReadSmsActivity">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+    
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+
+        <receiver
+            android:name=".sms.SmsBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"
+            >
+            <intent-filter android:priority="1000">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -49,35 +49,69 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         >
-        <activity android:name=".activity.tablayout.TabLayoutActivity">
+        <activity android:name=".activity.task.TaskA1Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.memoryleak.TestLeakActivity">
+        <activity
+            android:name=".activity.task.TaskA2Activity"
+            android:launchMode="singleTask"
+            />
+        <activity
+            android:name=".activity.task.TaskA3Activity"
+            android:launchMode="standard"
+            />
+        <activity
+            android:name=".activity.task.TaskB1Activity"
+            android:launchMode="standard"
+            android:taskAffinity="com.tzy.demo2"
+            />
+        <activity
+            android:name=".activity.task.TaskB2Activity"
+            android:launchMode="standard"
+            />
+        <activity
+            android:name=".activity.task.TaskB3Activity"
+            android:launchMode="standard"
+            />
+        <activity android:name=".activity.constraint.MotionLayoutActivity"></activity>
+        <activity android:name=".activity.js.TestJsActivity">
             <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>-->
         </activity>
-        <activity android:name=".activity.memoryleak.MemoryLeakActivity"></activity> <!-- 推必达 -->
+        <activity android:name=".activity.largeimage.LargeImageActivity"></activity>
+        <activity android:name=".activity.tablayout.TabLayoutActivity"/>
+        <activity android:name=".activity.memoryleak.TestLeakActivity">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            -->
+        </activity>
+        <activity android:name=".activity.memoryleak.MemoryLeakActivity"/> <!-- 推必达 -->
         <meta-data
             android:name="UPA_MPA_CHANNELID"
             android:value="94716y26Bre"
-            ></meta-data>
+            />
         <meta-data
             android:name="UPA_MPA_APPKEY"
             android:value="bM7vuq"
-            ></meta-data>
+            />
 
-        <activity android:name=".activity.recyclerviewrefresh.TestRefreshActivity"></activity>
+        <activity android:name=".activity.recyclerviewrefresh.TestRefreshActivity"/>
         <activity android:name=".activity.recyclerviewrefresh.RefreshActivity1"/>
         <activity android:name=".activity.recyclerviewrefresh.RefreshActivity2"/>
         <activity android:name=".activity.recyclerviewrefresh.RefreshActivity3"/>
-        <activity android:name=".activity.takephoto.TakePhotoActivity"></activity>
+        <activity android:name=".activity.takephoto.TakePhotoActivity"/>
         <activity android:name=".activity.mvvm.DataBindingActivity">
 
             <!-- <intent-filter> -->
@@ -87,12 +121,12 @@
             <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".activity.downloadprogress.OkhttpDownloadActivity"></activity>
+        <activity android:name=".activity.downloadprogress.OkhttpDownloadActivity"/>
         <activity
             android:name=".activity.animator.ObjectAnimatorActivity"
             android:label="ObjectAnimator"
-            ></activity>
-        <activity android:name=".activity.CommonWebviewActivity"></activity>
+            />
+        <activity android:name=".activity.CommonWebviewActivity"/>
         <activity android:name=".activity.animator.LottieActivity">
 
             <!--
@@ -103,12 +137,12 @@
             </intent-filter>
             -->
         </activity>
-        <activity android:name=".activity.animator.VectorDrawableActivity"></activity>
-        <activity android:name=".activity.animator.TestAnimationActivity"></activity>
-        <activity android:name=".activity.netrequest.TestRequestActivity"></activity>
+        <activity android:name=".activity.animator.VectorDrawableActivity"/>
+        <activity android:name=".activity.animator.TestAnimationActivity"/>
+        <activity android:name=".activity.netrequest.TestRequestActivity"/>
         <activity android:name=".wifi.WiFiPasswordActivity"/>
-        <activity android:name=".activity.camera.CameraActivity"></activity>
-        <activity android:name=".activity.camera.Camera2Activity"></activity>
+        <activity android:name=".activity.camera.CameraActivity"/>
+        <activity android:name=".activity.camera.Camera2Activity"/>
         <activity android:name=".sms.ReadSmsActivity">
 
             <!--

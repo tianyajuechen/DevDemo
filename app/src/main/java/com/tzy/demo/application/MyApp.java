@@ -2,6 +2,7 @@ package com.tzy.demo.application;
 
 import android.app.Application;
 import android.content.Context;
+import android.webkit.WebView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.tzy.demo.api.APIService;
@@ -32,6 +33,7 @@ public class MyApp extends Application {
 
         initRetrofit();
 
+        WebView.setWebContentsDebuggingEnabled(true);
 
         initBugly();
     }

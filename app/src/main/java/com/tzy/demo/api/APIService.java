@@ -1,6 +1,7 @@
 package com.tzy.demo.api;
 
 import com.tzy.demo.bean.JuHeResp;
+import com.tzy.demo.bean.RemoteAddressResp;
 import com.tzy.demo.bean.TestHelloBean;
 import com.tzy.demo.finals.Urls;
 import okhttp3.ResponseBody;
@@ -38,4 +39,7 @@ public interface APIService {
     @POST("http://192.168.1.164:8088/test/hello")
     Call<ResponseBody> testHello(@Part("who") String who, @Part("action") TestHelloBean action);
 
+    @FormUrlEncoded
+    @POST("http://10.191.72.156/visitor_login")
+    Call<RemoteAddressResp> getSocketAddress(@Field("token") String token, @Field("module") String module);
 }

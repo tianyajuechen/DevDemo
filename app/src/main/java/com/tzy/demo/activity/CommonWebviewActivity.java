@@ -49,7 +49,7 @@ public class CommonWebviewActivity extends BaseWebviewActivity {
         super.onCreate(savedInstanceState);
 
         //mUrl = getIntent().getStringExtra(Constants.URL_PATH);
-        mUrl = "http://192.168.1.65/test/test.html";
+        mUrl = "http://10.191.73.219:8080/index";
         if (TextUtils.isEmpty(mUrl)) {
             //MyLog.e(TAG, "you must put url to this class");
             finish();

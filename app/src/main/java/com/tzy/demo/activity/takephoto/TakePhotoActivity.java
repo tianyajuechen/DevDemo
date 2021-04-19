@@ -170,7 +170,7 @@ public class TakePhotoActivity extends AppCompatActivity {
         if (!temDir.exists()) {
             temDir.mkdir();
         }
-        File img = new File(temDir.getAbsolutePath() + "a.png");
+        File img = new File(temDir.getAbsolutePath() + "landscape.png");
         try {
             FileOutputStream fos = new FileOutputStream(img);
             bm.compress(Bitmap.CompressFormat.PNG, 85, fos);

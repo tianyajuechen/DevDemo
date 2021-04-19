@@ -95,7 +95,7 @@ class CircleImageView extends ImageView {
     /**
      * Update the background color of the circle image view.
      *
-     * @param colorRes Id of a color resource.
+     * @param colorRes Id of landscape color resource.
      */
     public void setBackgroundColorRes(int colorRes) {
         setBackgroundColor(getContext().getResources().getColor(colorRes));

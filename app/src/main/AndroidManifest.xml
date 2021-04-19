@@ -5,6 +5,10 @@
     package="com.tzy.demo"
     >
     <!-- 网络 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/> <!-- 网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> <!-- 外部存储-写入 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> <!-- 外部存储-读 -->
@@ -12,7 +16,7 @@
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_LOGS"/> <!-- 极光 -->
+
     <permission
         android:name="com.tzy.demo.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature"
@@ -23,8 +27,6 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> <!-- Optional for location -->
     <uses-permission android:name="android.permission.VIBRATE"/>
@@ -38,6 +40,9 @@
     <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
 
     <application
         android:name=".application.MyApp"
@@ -49,13 +54,15 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         >
-        <activity android:name=".activity.task.TaskA1Activity">
+        <activity android:name=".activity.websocket.WebSocketActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activity.task.TaskA1Activity"/>
         <activity
             android:name=".activity.task.TaskA2Activity"
             android:launchMode="singleTask"
@@ -77,15 +84,18 @@
             android:name=".activity.task.TaskB3Activity"
             android:launchMode="standard"
             />
-        <activity android:name=".activity.constraint.MotionLayoutActivity"></activity>
+        <activity android:name=".activity.constraint.MotionLayoutActivity"/>
         <activity android:name=".activity.js.TestJsActivity">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
-        <activity android:name=".activity.largeimage.LargeImageActivity"></activity>
+        <activity android:name=".activity.largeimage.LargeImageActivity"/>
         <activity android:name=".activity.tablayout.TabLayoutActivity"/>
         <activity android:name=".activity.memoryleak.TestLeakActivity">
 
@@ -126,7 +136,7 @@
             android:name=".activity.animator.ObjectAnimatorActivity"
             android:label="ObjectAnimator"
             />
-        <activity android:name=".activity.CommonWebviewActivity"/>
+        <activity android:name=".activity.CommonWebviewActivity"></activity>
         <activity android:name=".activity.animator.LottieActivity">
 
             <!--

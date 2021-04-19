@@ -13,6 +13,6 @@ public class LargeImageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_large_image);
 
         ImageFilterView imageFilterView = findViewById(R.id.iv);
-        imageFilterView.setImageResource(R.mipmap.a);
+        imageFilterView.setImageResource(R.mipmap.landscape);
     }
 }

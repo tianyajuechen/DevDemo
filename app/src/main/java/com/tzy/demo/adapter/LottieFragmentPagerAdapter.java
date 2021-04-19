@@ -20,7 +20,7 @@ public class LottieFragmentPagerAdapter extends FragmentStatePagerAdapter {
     }
 
     /**
-     * Return the Fragment associated with a specified position.
+     * Return the Fragment associated with landscape specified position.
      *
      * @param position
      */

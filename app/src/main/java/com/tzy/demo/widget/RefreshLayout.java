@@ -67,7 +67,7 @@ public class RefreshLayout extends PullToRefreshLayout {
         final int action = MotionEventCompat.getActionMasked(ev);
 
         if (!isEnabled() || canChildScrollDown()) {
-            // Fail fast if we're not in a state where a swipe is possible
+            // Fail fast if we're not in landscape state where landscape swipe is possible
             return super.dispatchTouchEvent(ev);
         }
         switch (action) {

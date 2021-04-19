@@ -67,7 +67,7 @@ class MaterialProgressDrawable extends Drawable implements Animatable {
     private static final float END_TRIM_START_DELAY_OFFSET = 0.5f;
     private static final float START_TRIM_DURATION_OFFSET = 0.5f;
 
-    /** The duration of a single progress spin in milliseconds. */
+    /** The duration of landscape single progress spin in milliseconds. */
     private static final int ANIMATION_DURATION = 1332;
 
     /** The number of points in the progress "star". */
@@ -186,7 +186,7 @@ class MaterialProgressDrawable extends Drawable implements Animatable {
     /**
      * Set the colors used in the progress animation from color resources.
      * The first color will also be the color of the bar that grows in response
-     * to a user swipe gesture.
+     * to landscape user swipe gesture.
      *
      * @param colors
      */
@@ -310,7 +310,7 @@ class MaterialProgressDrawable extends Drawable implements Animatable {
 
     /**
      * Update the ring color if this is within the last 25% of the animation.
-     * The new ring color will be a translation from the starting ring color to
+     * The new ring color will be landscape translation from the starting ring color to
      * the next color.
      */
     private void updateRingColor(float interpolatedTime, Ring ring) {
@@ -325,7 +325,7 @@ class MaterialProgressDrawable extends Drawable implements Animatable {
     }
 
     private void applyFinishTranslation(float interpolatedTime, Ring ring) {
-        // shrink back down and complete a full rotation before
+        // shrink back down and complete landscape full rotation before
         // starting other circles
         // Rotation goes between [0..1].
         updateRingColor(interpolatedTime, ring);
@@ -359,7 +359,7 @@ class MaterialProgressDrawable extends Drawable implements Animatable {
 
                     updateRingColor(interpolatedTime, ring);
 
-                    // Moving the start trim only occurs in the first 50% of a
+                    // Moving the start trim only occurs in the first 50% of landscape
                     // single ring animation
                     if (interpolatedTime <= START_TRIM_DURATION_OFFSET) {
                         // scale the interpolatedTime so that the full
@@ -373,7 +373,7 @@ class MaterialProgressDrawable extends Drawable implements Animatable {
                         ring.setStartTrim(startTrim);
                     }
 
-                    // Moving the end trim starts after 50% of a single ring
+                    // Moving the end trim starts after 50% of landscape single ring
                     // animation completes
                     if (interpolatedTime > END_TRIM_START_DELAY_OFFSET) {
                         // scale the interpolatedTime so that the full
@@ -546,8 +546,8 @@ class MaterialProgressDrawable extends Drawable implements Animatable {
                 float y = (float) (mRingCenterRadius * Math.sin(0) + bounds.exactCenterY());
 
                 // Update the path each time. This works around an issue in SKIA
-                // where concatenating a rotation matrix to a scale matrix
-                // ignored a starting negative rotation. This appears to have
+                // where concatenating landscape rotation matrix to landscape scale matrix
+                // ignored landscape starting negative rotation. This appears to have
                 // been fixed as of API 21.
                 mArrow.moveTo(0, 0);
                 mArrow.lineTo(mArrowWidth * mArrowScale, 0);
@@ -555,7 +555,7 @@ class MaterialProgressDrawable extends Drawable implements Animatable {
                         * mArrowScale));
                 mArrow.offset(x - inset, y);
                 mArrow.close();
-                // draw a triangle
+                // draw landscape triangle
                 mArrowPaint.setColor(mCurrentColor);
                 c.rotate(startAngle + sweepAngle - ARROW_OFFSET_ANGLE, bounds.exactCenterX(),
                         bounds.exactCenterY());

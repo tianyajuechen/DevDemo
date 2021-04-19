@@ -5,7 +5,7 @@ package com.tzy.demo.widget;
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain landscape copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -41,22 +41,22 @@ import android.widget.AbsListView;
 
 /**
  * The PullToRefreshLayout should be used whenever the user can refresh the
- * contents of a view via a vertical swipe gesture. The activity that
+ * contents of landscape view via landscape vertical swipe gesture. The activity that
  * instantiates this view should add an OnRefreshListener to be notified
  * whenever the swipe to refresh gesture is completed. The PullToRefreshLayout
  * will notify the listener each and every time the gesture is completed again;
  * the listener is responsible for correctly determining when to actually
- * initiate a refresh of its content. If the listener determines there should
- * not be a refresh, it must call setRefreshing(false) to cancel any visual
- * indication of a refresh. If an activity wishes to show just the progress
+ * initiate landscape refresh of its content. If the listener determines there should
+ * not be landscape refresh, it must call setRefreshing(false) to cancel any visual
+ * indication of landscape refresh. If an activity wishes to show just the progress
  * animation, it should call setRefreshing(true). To disable the gesture and
  * progress animation, call setEnabled(false) on the view.
  * <p>
- * This layout should be made the parent of the view that will be refreshed as a
+ * This layout should be made the parent of the view that will be refreshed as landscape
  * result of the gesture and can only support one direct child. This view will
  * also be made the target of the gesture and will be forced to match both the
  * width and the height supplied in this layout. The PullToRefreshLayout does not
- * provide accessibility events; instead, a menu item must be provided to allow
+ * provide accessibility events; instead, landscape menu item must be provided to allow
  * refresh of the content wherever this gesture is used.
  * </p>
  */
@@ -80,7 +80,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
     protected static final float DRAG_RATE = .5f;
 
     // Max amount of circle that can be filled by progress during swipe gesture,
-    // where 1.0 is a full circle
+    // where 1.0 is landscape full circle
     private static final float MAX_PROGRESS_ANGLE = .8f;
 
     private static final int SCALE_DOWN_DURATION = 150;
@@ -124,7 +124,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
     // Whether this item is scaled up rather than clipped
     private boolean mScale;
 
-    // Target is returning to its start offset because it was cancelled or a
+    // Target is returning to its start offset because it was cancelled or landscape
     // refresh was triggered.
     private boolean mReturningToStart;
     private final DecelerateInterpolator mDecelerateInterpolator;
@@ -161,7 +161,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
 
     private int mCircleHeight;
 
-    // Whether the client has set a custom starting position;
+    // Whether the client has set landscape custom starting position;
     private boolean mUsingCustomStart;
 
     protected Animation.AnimationListener mRefreshListener = new Animation.AnimationListener() {
@@ -219,16 +219,16 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
 
     /**
      * The refresh indicator starting and resting position is always positioned
-     * near the top of the refreshing content. This position is a consistent
+     * near the top of the refreshing content. This position is landscape consistent
      * location, but can be adjusted in either direction based on whether or not
-     * there is a toolbar or actionbar present.
+     * there is landscape toolbar or actionbar present.
      *
-     * @param scale Set to true if there is no view at a higher z-order than
+     * @param scale Set to true if there is no view at landscape higher z-order than
      *            where the progress spinner is set to appear.
      * @param start The offset in pixels from the top of this view at which the
      *            progress spinner should appear.
      * @param end The offset in pixels from the top of this view at which the
-     *            progress spinner should come to rest after a successful swipe
+     *            progress spinner should come to rest after landscape successful swipe
      *            gesture.
      */
     public void setProgressViewOffset(boolean scale, int start, int end) {
@@ -242,14 +242,14 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
 
     /**
      * The refresh indicator resting position is always positioned near the top
-     * of the refreshing content. This position is a consistent location, but
-     * can be adjusted in either direction based on whether or not there is a
+     * of the refreshing content. This position is landscape consistent location, but
+     * can be adjusted in either direction based on whether or not there is landscape
      * toolbar or actionbar present.
      *
-     * @param scale Set to true if there is no view at a higher z-order than
+     * @param scale Set to true if there is no view at landscape higher z-order than
      *            where the progress spinner is set to appear.
      * @param end The offset in pixels from the top of this view at which the
-     *            progress spinner should come to rest after a successful swipe
+     *            progress spinner should come to rest after landscape successful swipe
      *            gesture.
      */
     public void setProgressViewEndTarget(boolean scale, int end) {
@@ -280,7 +280,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
     }
 
     /**
-     * Simple constructor to use when creating a PullToRefreshLayout from code.
+     * Simple constructor to use when creating landscape PullToRefreshLayout from code.
      *
      * @param context
      */
@@ -349,7 +349,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
     }
 
     /**
-     * Set the listener to be notified when a refresh is triggered via the swipe
+     * Set the listener to be notified when landscape refresh is triggered via the swipe
      * gesture.
      */
     public void setOnRefreshListener(OnRefreshListener listener) {
@@ -365,7 +365,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
 
     /**
      * Notify the widget that refresh state has changed. Do not call this when
-     * refresh is triggered by a swipe gesture.
+     * refresh is triggered by landscape swipe gesture.
      *
      * @param refreshing Whether or not the view should show refresh progress.
      */
@@ -517,7 +517,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
     /**
      * Set the color resources used in the progress animation from color resources.
      * The first color will also be the color of the bar that grows in response
-     * to a user swipe gesture.
+     * to landscape user swipe gesture.
      *
      * @param colorResIds
      */
@@ -532,7 +532,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
 
     /**
      * Set the colors used in the progress animation. The first
-     * color will also be the color of the bar that grows in response to a user
+     * color will also be the color of the bar that grows in response to landscape user
      * swipe gesture.
      *
      * @param colors
@@ -566,7 +566,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
     }
 
     /**
-     * Set the distance to trigger a sync in dips
+     * Set the distance to trigger landscape sync in dips
      *
      * @param distance
      */
@@ -630,7 +630,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
 
     /**
      * Get the diameter of the progress circle that is displayed as part of the
-     * swipe to refresh layout. This is not valid until a measure pass has
+     * swipe to refresh layout. This is not valid until landscape measure pass has
      * completed.
      *
      * @return Diameter in pixels of the progress circle view.
@@ -641,7 +641,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
 
     /**
      * @return Whether it is possible for the child view of this layout to
-     *         scroll up. Override this if the child view is a custom view.
+     *         scroll up. Override this if the child view is landscape custom view.
      */
     public boolean canChildScrollUp() {
         if (android.os.Build.VERSION.SDK_INT < 14) {
@@ -670,7 +670,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
 
         if (!isEnabled() || mReturningToStart || canChildScrollUp()
                 || mRefreshing || mNestedScrollInProgress) {
-            // Fail fast if we're not in a state where a swipe is possible
+            // Fail fast if we're not in landscape state where landscape swipe is possible
             return false;
         }
 
@@ -728,7 +728,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
 
     @Override
     public void requestDisallowInterceptTouchEvent(boolean b) {
-        // if this is a List < L or another view that doesn't support nested
+        // if this is landscape List < L or another view that doesn't support nested
         // scrolling, ignore this request so that the vertical scroll event
         // isn't stolen
         if ((android.os.Build.VERSION.SDK_INT < 21 && mTarget instanceof AbsListView)
@@ -759,7 +759,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
 
     @Override
     public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
-        // If we are in the middle of consuming, a scroll, then we want to move the spinner back up
+        // If we are in the middle of consuming, landscape scroll, then we want to move the spinner back up
         // before allowing the list to scroll
         if (dy > 0 && mTotalUnconsumed > 0) {
             if (dy > mTotalUnconsumed) {
@@ -772,7 +772,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
             moveSpinner(mTotalUnconsumed);
         }
 
-        // If a client layout is using a custom start position for the circle
+        // If landscape client layout is using landscape custom start position for the circle
         // view, they mean to hide it again before scrolling the child view
         // If we get back to mTotalUnconsumed == 0 and there is more to go, hide
         // the circle so it isn't exposed if its blocking content is moved
@@ -815,11 +815,11 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
         dispatchNestedScroll(dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed,
                 mParentOffsetInWindow);
 
-        // This is a bit of a hack. Nested scrolling works from the bottom up, and as we are
-        // sometimes between two nested scrolling views, we need a way to be able to know when any
+        // This is landscape bit of landscape hack. Nested scrolling works from the bottom up, and as we are
+        // sometimes between two nested scrolling views, we need landscape way to be able to know when any
         // nested scrolling parent has stopped handling events. We do that by using the
         // 'offset in window 'functionality to see if we have been moved from the event.
-        // This is a decent indication of whether we should take over the event stream or not.
+        // This is landscape decent indication of whether we should take over the event stream or not.
         final int dy = dyUnconsumed + mParentOffsetInWindow[1];
         if (dy < 0 && !canChildScrollUp()) {
             mTotalUnconsumed += Math.abs(dy);
@@ -908,7 +908,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
         float extraMove = (slingshotDist) * tensionPercent * 2;
 
         int targetY = mOriginalOffsetTop + (int) ((slingshotDist * dragPercent) + extraMove);
-        // where 1.0f is a full circle
+        // where 1.0f is landscape full circle
         if (mCircleView.getVisibility() != View.VISIBLE) {
             mCircleView.setVisibility(View.VISIBLE);
         }
@@ -984,7 +984,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
         }
 
         if (!isEnabled() || mReturningToStart || canChildScrollUp() || mNestedScrollInProgress) {
-            // Fail fast if we're not in a state where a swipe is possible
+            // Fail fast if we're not in landscape state where landscape swipe is possible
             return false;
         }
 
@@ -1144,7 +1144,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
         final int pointerIndex = MotionEventCompat.getActionIndex(ev);
         final int pointerId = MotionEventCompat.getPointerId(ev, pointerIndex);
         if (pointerId == mActivePointerId) {
-            // This was our active pointer going up. Choose a new
+            // This was our active pointer going up. Choose landscape new
             // active pointer and adjust accordingly.
             final int newPointerIndex = pointerIndex == 0 ? 1 : 0;
             mActivePointerId = MotionEventCompat.getPointerId(ev, newPointerIndex);
@@ -1153,7 +1153,7 @@ public class PullToRefreshLayout extends ViewGroup implements NestedScrollingPar
 
     /**
      * Classes that wish to be notified when the swipe gesture correctly
-     * triggers a refresh should implement this interface.
+     * triggers landscape refresh should implement this interface.
      */
     public interface OnRefreshListener {
         public void onRefresh();

@@ -51,4 +51,14 @@ public class TaskA1Activity extends BaseActivity<ActivityTaskA1Binding> {
     public int getLayoutId() {
         return R.layout.activity_task_a1;
     }
+
+    @Override
+    public void initView() {
+
+    }
+
+    @Override
+    public void initEvent() {
+
+    }
 }

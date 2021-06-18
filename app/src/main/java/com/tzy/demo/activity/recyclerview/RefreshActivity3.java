@@ -1,6 +1,8 @@
-package com.tzy.demo.activity.recyclerviewrefresh;
+package com.tzy.demo.activity.recyclerview;
 
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -78,8 +80,8 @@ public class RefreshActivity3 extends AppCompatActivity {
                 }
             }
         });
-        mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
-        mAdapter.setNotDoAnimationCount(4);
+//        mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
+//        mAdapter.setNotDoAnimationCount(4);
         mAdapter.setPreLoadNumber(1);
         mAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
@@ -103,12 +105,22 @@ public class RefreshActivity3 extends AppCompatActivity {
         //mRv.setItemAnimator(new DefaultItemAnimator());
         mRv.addItemDecoration(new RecyclerViewItemDecoration(10));
         mRv.setAdapter(mAdapter);
+
+        mRv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                computeItemVisiblePercent();
+            }
+        });
+
+
         getNews();
     }
 
     private void getNews() {
         Map<String, String> params = new HashMap<>();
-        params.put("ps", "5");
+        params.put("ps", "10");
         params.put("pno", mPage + "");
         Call<JuHeResp> call = MyApp.getInstance().mApiService.getNews(params);
         call.enqueue(new Callback<JuHeResp>() {
@@ -136,5 +148,29 @@ public class RefreshActivity3 extends AppCompatActivity {
             public void onFailure(Call<JuHeResp> call, Throwable t) {
             }
         });
+    }
+
+    private void computeItemVisiblePercent() {
+        if (mRv == null) return;
+        LinearLayoutManager layoutManager = (LinearLayoutManager) mRv.getLayoutManager();
+        if (layoutManager == null) return;
+        int firstPosition = layoutManager.findFirstVisibleItemPosition();
+        int lastPosition = layoutManager.findLastVisibleItemPosition();
+        Rect rvRect = new Rect();
+        mRv.getGlobalVisibleRect(rvRect);
+        for (int i = firstPosition; i <= lastPosition; i++) {
+            View itemView = layoutManager.findViewByPosition(i);
+            if (itemView == null) continue;
+            Rect itemRect = new Rect();
+            itemView.getGlobalVisibleRect(itemRect);
+            int visibleHeight;
+            if (itemRect.bottom >= rvRect.bottom) {
+                visibleHeight = rvRect.bottom - itemRect.top;
+            } else {
+                visibleHeight = itemRect.bottom - rvRect.top;
+            }
+            float alpha = visibleHeight * 1f / itemView.getHeight();
+            itemView.setAlpha(alpha);
+        }
     }
 }

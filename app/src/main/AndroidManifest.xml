@@ -52,15 +52,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         >
         <activity android:name=".activity.websocket.WebSocketActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".activity.task.TaskA1Activity"/>
         <activity
@@ -117,10 +112,16 @@
             android:value="bM7vuq"
             />
 
-        <activity android:name=".activity.recyclerviewrefresh.TestRefreshActivity"/>
-        <activity android:name=".activity.recyclerviewrefresh.RefreshActivity1"/>
-        <activity android:name=".activity.recyclerviewrefresh.RefreshActivity2"/>
-        <activity android:name=".activity.recyclerviewrefresh.RefreshActivity3"/>
+        <activity android:name=".activity.recyclerview.TestRefreshActivity"/>
+        <activity android:name=".activity.recyclerview.RefreshActivity1"/>
+        <activity android:name=".activity.recyclerview.RefreshActivity2"/>
+        <activity android:name=".activity.recyclerview.RefreshActivity3">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.takephoto.TakePhotoActivity"/>
         <activity android:name=".activity.mvvm.DataBindingActivity">
 
@@ -162,6 +163,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             -->
+        </activity>
+        <activity android:name=".activity.recyclerview.MultiRecyclerViewActivity">
         </activity>
 
         <receiver

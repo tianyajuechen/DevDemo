@@ -1,4 +1,4 @@
-package com.tzy.demo.activity.recyclerviewrefresh;
+package com.tzy.demo.activity.recyclerview;
 
 import android.content.Intent;
 import android.os.Bundle;

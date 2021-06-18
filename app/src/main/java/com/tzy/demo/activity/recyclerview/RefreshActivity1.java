@@ -1,4 +1,4 @@
-package com.tzy.demo.activity.recyclerviewrefresh;
+package com.tzy.demo.activity.recyclerview;
 
 import android.graphics.Rect;
 import android.os.Bundle;

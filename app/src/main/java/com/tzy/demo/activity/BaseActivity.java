@@ -22,6 +22,9 @@ public abstract class BaseActivity<B extends ViewDataBinding> extends AppCompatA
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, getLayoutId());
         log("onCreate");
+
+        initView();
+        initEvent();
     }
 
     @Override
@@ -31,6 +34,10 @@ public abstract class BaseActivity<B extends ViewDataBinding> extends AppCompatA
     }
 
     public abstract int getLayoutId();
+
+    public abstract void initView();
+
+    public abstract void initEvent();
 
     protected void log(String msg) {
         Log.e(TAG, msg);

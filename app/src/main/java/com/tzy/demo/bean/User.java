@@ -18,6 +18,10 @@ public class User extends BaseObservable {
     public User() {
     }
 
+    public User(String name) {
+        this.name = name;
+    }
+
     public User(String name, int age, float height) {
         this.name = name;
         this.age = age;

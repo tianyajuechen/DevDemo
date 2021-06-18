@@ -1,4 +1,4 @@
-package com.tzy.demo.activity.recyclerviewrefresh;
+package com.tzy.demo.activity.recyclerview;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;

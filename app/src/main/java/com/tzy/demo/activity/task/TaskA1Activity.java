@@ -2,10 +2,9 @@ package com.tzy.demo.activity.task;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 import com.tzy.demo.R;
 import com.tzy.demo.activity.BaseActivity;
 import com.tzy.demo.databinding.ActivityTaskA1Binding;

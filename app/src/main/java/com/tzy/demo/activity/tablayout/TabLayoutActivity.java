@@ -1,18 +1,17 @@
 package com.tzy.demo.activity.tablayout;
 
-import android.databinding.DataBindingUtil;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v7.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.annotation.Nullable;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.tzy.demo.R;
 import com.tzy.demo.databinding.ActivityTabLayoutBinding;
 import com.tzy.demo.fragment.TestFragment;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

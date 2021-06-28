@@ -1,14 +1,14 @@
 package com.tzy.demo.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
+
 import com.bumptech.glide.Glide;
 import com.tzy.demo.R;
 import com.tzy.demo.bean.WeChatNewsBean;
@@ -49,18 +49,18 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.iv)
         ImageView mIv;
-        @BindView(R.id.tv_date)
         TextView mTvDate;
-        @BindView(R.id.tv_title)
         TextView mTvTitle;
-        @BindView(R.id.tv_desc)
         TextView mTvDesc;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+            mIv = itemView.findViewById(R.id.iv);
+            mTvDate = itemView.findViewById(R.id.tv_date);
+            mTvTitle = itemView.findViewById(R.id.tv_title);
+            mTvDesc = itemView.findViewById(R.id.tv_desc);
+
         }
     }
 }

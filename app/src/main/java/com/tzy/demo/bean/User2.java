@@ -1,6 +1,6 @@
 package com.tzy.demo.bean;
 
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableField;
 
 /**
  * Created by YANG

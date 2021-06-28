@@ -14,20 +14,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import android.view.TextureView;
 import android.widget.Button;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
+
 import com.tzy.demo.R;
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class Camera2Activity extends Activity {
 
-    @BindView(R.id.display)
     TextureView display;
-    @BindView(R.id.bt)
     Button bt;
 
 
@@ -47,7 +45,8 @@ public class Camera2Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera2);
-        ButterKnife.bind(this);
+        display = (TextureView) findViewById(R.id.display);
+        bt = (Button) findViewById(R.id.bt);
 
         initCameraInfo();
     }

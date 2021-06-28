@@ -6,8 +6,8 @@ import android.hardware.Camera;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.Button;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
+
 import com.tzy.demo.R;
 
 import java.io.File;
@@ -16,9 +16,7 @@ import java.io.IOException;
 
 public class CameraActivity extends Activity {
 
-    @BindView(R.id.surfaceview)
     SurfaceView surfaceview;
-    @BindView(R.id.bt_take_photo)
     Button btTakePhoto;
 
     private Camera mCamera;
@@ -35,7 +33,8 @@ public class CameraActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
-        ButterKnife.bind(this);
+        surfaceview = (SurfaceView) findViewById(R.id.surfaceview);
+        btTakePhoto = (Button) findViewById(R.id.bt_take_photo);
 
         initCameraInfo();
 

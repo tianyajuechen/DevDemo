@@ -1,13 +1,13 @@
 package com.tzy.demo.activity.recyclerview;
 
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+
 import com.tzy.demo.R;
 import com.tzy.demo.adapter.NewsAdapter;
 import com.tzy.demo.application.MyApp;
@@ -24,9 +24,7 @@ import java.util.Map;
 
 public class RefreshActivity2 extends AppCompatActivity {
 
-    @BindView(R.id.rv)
     RecyclerView mRv;
-    @BindView(R.id.srl)
     SwipeRefreshLayout mSrl;
 
     private List<WeChatNewsBean> mNews;
@@ -38,7 +36,8 @@ public class RefreshActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_refresh2);
-        ButterKnife.bind(this);
+        mRv = (RecyclerView) findViewById(R.id.rv);
+        mSrl = (SwipeRefreshLayout) findViewById(R.id.srl);
 
         mPage = 0;
         mNews = new ArrayList<>();

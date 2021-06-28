@@ -1,6 +1,6 @@
 package com.tzy.demo.presenter;
 
-import android.databinding.ObservableFloat;
+import androidx.databinding.ObservableFloat;
 import android.view.View;
 import com.tzy.demo.bean.User;
 import com.tzy.demo.bean.User2;

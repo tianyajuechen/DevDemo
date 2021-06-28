@@ -14,7 +14,7 @@
         android:layout_gravity="center_horizontal"
         />
 
-    <android.support.constraint.utils.ImageFilterView
+    <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/iv"
         android:layout_width="200dp"
         android:layout_height="200dp"

@@ -1,8 +1,8 @@
 package com.tzy.demo.bean;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
-import android.databinding.ObservableFloat;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+import androidx.databinding.ObservableFloat;
 import com.tzy.demo.BR;
 
 /**

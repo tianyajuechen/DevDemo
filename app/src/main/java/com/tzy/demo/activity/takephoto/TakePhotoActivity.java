@@ -9,27 +9,23 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
+
 import com.tzy.demo.R;
 
 import java.io.*;
 
 public class TakePhotoActivity extends AppCompatActivity {
 
-    @BindView(R.id.iv)
     ImageView iv;
-    @BindView(R.id.bt_camera)
     Button btCamera;
-    @BindView(R.id.bt_gallery)
     Button btGallery;
-    @BindView(R.id.tv)
     TextView tv;
 
     public static final int CAMERA_REQUEST_CODE = 1;
@@ -43,7 +39,11 @@ public class TakePhotoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_layout);
-        ButterKnife.bind(this);
+        iv = (ImageView) findViewById(R.id.iv);
+        btCamera = (Button) findViewById(R.id.bt_camera);
+        btGallery = (Button) findViewById(R.id.bt_gallery);
+        tv = (TextView) findViewById(R.id.tv);
+
 
         btCamera.setOnClickListener(new View.OnClickListener() {
             @Override

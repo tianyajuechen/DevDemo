@@ -17,8 +17,8 @@ import android.webkit.*;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
+
 import com.tzy.demo.R;
 
 /**
@@ -27,11 +27,8 @@ import com.tzy.demo.R;
  */
 public class CommonWebviewActivity extends BaseWebviewActivity {
 
-    @BindView(R.id.pb)
     ProgressBar pb;
-    @BindView(R.id.webview)
     WebView webview;
-    @BindView(R.id.bt)
     Button bt;
 
     private String mUrl;
@@ -45,7 +42,10 @@ public class CommonWebviewActivity extends BaseWebviewActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.common_webview_layout);
-        ButterKnife.bind(this);
+        pb = (ProgressBar) findViewById(R.id.pb);
+        webview = (WebView) findViewById(R.id.webview);
+        bt = (Button) findViewById(R.id.bt);
+
         super.onCreate(savedInstanceState);
 
         //mUrl = getIntent().getStringExtra(Constants.URL_PATH);

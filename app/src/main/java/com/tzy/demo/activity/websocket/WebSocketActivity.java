@@ -1,9 +1,9 @@
 package com.tzy.demo.activity.websocket;
 
-import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import android.text.TextUtils;
 import com.google.gson.Gson;
 import com.tzy.demo.R;

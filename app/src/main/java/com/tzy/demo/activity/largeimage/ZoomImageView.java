@@ -15,7 +15,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.OverScroller;
 
 
-public class ZoomImageView extends android.support.v7.widget.AppCompatImageView implements ViewTreeObserver.OnGlobalLayoutListener {
+public class ZoomImageView extends androidx.appcompat.widget.AppCompatImageView implements ViewTreeObserver.OnGlobalLayoutListener {
 
     private boolean mIsOneLoad = true;
 

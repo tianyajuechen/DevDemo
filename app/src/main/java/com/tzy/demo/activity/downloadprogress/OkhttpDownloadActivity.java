@@ -9,8 +9,8 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
+
 import com.tzy.demo.R;
 import okhttp3.*;
 import okio.*;
@@ -24,17 +24,11 @@ import java.io.*;
  */
 public class OkhttpDownloadActivity extends Activity {
 
-    @BindView(R.id.tv_pb)
     ProgressBar pb;
-    @BindView(R.id.tv_percent)
     TextView tvPercent;
-    @BindView(R.id.bt_download)
     Button btDownload;
-    @BindView(R.id.activity_okhttp_download)
     LinearLayout activityOkhttpDownload;
-    @BindView(R.id.tv_error_msg)
     TextView tvErrorMsg;
-    @BindView(R.id.bt_install)
     Button btInstall;
 
     private static final String TAG = "download";
@@ -44,7 +38,12 @@ public class OkhttpDownloadActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_okhttp_download);
-        ButterKnife.bind(this);
+        pb = (ProgressBar) findViewById(R.id.tv_pb);
+        tvPercent = (TextView) findViewById(R.id.tv_percent);
+        btDownload = (Button) findViewById(R.id.bt_download);
+        activityOkhttpDownload = (LinearLayout) findViewById(R.id.activity_okhttp_download);
+        tvErrorMsg = (TextView) findViewById(R.id.tv_error_msg);
+        btInstall = (Button) findViewById(R.id.bt_install);
 
         btDownload.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,7 +1,7 @@
 package com.tzy.demo.activity.largeimage;
 
-import android.support.constraint.utils.ImageFilterView;
-import android.support.v7.app.AppCompatActivity;
+import androidx.constraintlayout.utils.widget.ImageFilterView;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.tzy.demo.R;
 

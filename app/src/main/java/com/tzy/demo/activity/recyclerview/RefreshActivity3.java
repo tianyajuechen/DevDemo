@@ -2,15 +2,15 @@ package com.tzy.demo.activity.recyclerview;
 
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.tzy.demo.R;
 import com.tzy.demo.adapter.QuickAdapter;
@@ -30,7 +30,6 @@ import java.util.Map;
 
 public class RefreshActivity3 extends AppCompatActivity {
 
-    @BindView(R.id.rv)
     RecyclerView mRv;
 
     private List<WeChatNewsBean> mNews;
@@ -41,7 +40,7 @@ public class RefreshActivity3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_refresh3);
-        ButterKnife.bind(this);
+        mRv = (RecyclerView) findViewById(R.id.rv);
 
         mPage = 1;
         mNews = new ArrayList<>();

@@ -55,8 +55,8 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         >
-        <activity android:name=".activity.websocket.WebSocketActivity">
-        </activity>
+        <activity android:name=".activity.media.MediaPlayerActivity"></activity>
+        <activity android:name=".activity.websocket.WebSocketActivity"></activity>
         <activity android:name=".activity.task.TaskA1Activity"/>
         <activity
             android:name=".activity.task.TaskA2Activity"
@@ -137,7 +137,7 @@
             android:name=".activity.animator.ObjectAnimatorActivity"
             android:label="ObjectAnimator"
             />
-        <activity android:name=".activity.CommonWebviewActivity"></activity>
+        <activity android:name=".activity.CommonWebviewActivity"/>
         <activity android:name=".activity.animator.LottieActivity">
 
             <!--
@@ -164,8 +164,7 @@
             </intent-filter>
             -->
         </activity>
-        <activity android:name=".activity.recyclerview.MultiRecyclerViewActivity">
-        </activity>
+        <activity android:name=".activity.recyclerview.MultiRecyclerViewActivity"></activity>
 
         <receiver
             android:name=".sms.SmsBroadcastReceiver"

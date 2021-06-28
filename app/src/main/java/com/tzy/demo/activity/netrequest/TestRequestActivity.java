@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
+
 import com.tzy.demo.R;
 import com.tzy.demo.application.MyApp;
 import com.tzy.demo.bean.TestHelloBean;
@@ -17,16 +17,13 @@ import retrofit2.Response;
 
 public class TestRequestActivity extends Activity {
 
-    @BindView(R.id.et)
     EditText mEt;
-    @BindView(R.id.bt)
     Button mBt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_request);
-        ButterKnife.bind(this);
 
         mBt.setOnClickListener(new View.OnClickListener() {
             @Override

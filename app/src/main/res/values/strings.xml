@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">DevDemo</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="play">播放</string>
+    <string name="rain">Rain</string>
+    <string name="storm">Storm</string>
+    <string name="water">Water</string>
+    <string name="fire">Fire</string>
+    <string name="wind">Wind</string>
+    <string name="forest">Forest</string>
+    <string name="night">Night Sounds</string>
+    <string name="cat">Cat Purr</string>
 </resources>

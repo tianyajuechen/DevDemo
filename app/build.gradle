@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 ext {
     sdkVersion = 23
@@ -74,4 +75,5 @@ dependencies {
     implementation 'com.airbnb.android:lottie:2.5.4'
     implementation 'co.lujun:androidtagview:1.1.5'
     implementation 'com.google.android.exoplayer:exoplayer:2.14.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

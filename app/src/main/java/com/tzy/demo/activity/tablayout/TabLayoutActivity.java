@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.tzy.demo.R;
 import com.tzy.demo.databinding.ActivityTabLayoutBinding;
-import com.tzy.demo.fragment.TestFragment;
 
 import java.util.Arrays;
 import java.util.List;

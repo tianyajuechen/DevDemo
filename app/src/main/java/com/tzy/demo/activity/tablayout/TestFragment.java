@@ -1,4 +1,4 @@
-package com.tzy.demo.fragment;
+package com.tzy.demo.activity.tablayout;
 
 
 import androidx.databinding.DataBindingUtil;

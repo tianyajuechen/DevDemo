@@ -1,4 +1,4 @@
-package com.tzy.demo.sms;
+package com.tzy.demo.activity.sms;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

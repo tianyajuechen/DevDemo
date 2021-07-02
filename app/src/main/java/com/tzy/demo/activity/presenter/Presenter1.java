@@ -1,4 +1,4 @@
-package com.tzy.demo.presenter;
+package com.tzy.demo.activity.presenter;
 
 import androidx.databinding.ObservableFloat;
 import android.view.View;

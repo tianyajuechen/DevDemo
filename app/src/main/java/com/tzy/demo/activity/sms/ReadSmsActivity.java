@@ -1,4 +1,4 @@
-package com.tzy.demo.sms;
+package com.tzy.demo.activity.sms;
 
 import android.Manifest;
 import android.app.Activity;
@@ -8,16 +8,15 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import com.tzy.demo.R;
 
 import java.util.ArrayList;
@@ -67,59 +66,12 @@ public class ReadSmsActivity extends Activity {
         }
     });
 
-
-    public void aaa() {
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                Looper.prepare();
-                try {
-                    Thread.sleep(30);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Message message = new Message();
-                message.what = 0;
-                mHandler.sendMessage(message);
-            }
-        }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                Looper.prepare();
-                try {
-                    Thread.sleep(50);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                mHandler.sendEmptyMessage(1);
-            }
-        }).start();
-
-
-        do {
-
-            String s = "";
-            if (mAudio && mMore) {
-                String ss = "";
-                break;
-            }
-        } while (true);
-
-        String bb = "'";
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_sms);
 
         initView();
-
-        aaa();
     }
 
     private void initView() {
@@ -198,7 +150,7 @@ public class ReadSmsActivity extends Activity {
                 date = cursor.getString(3);
                 type = cursor.getInt(4);
                 map.put("names", address);
-                map.put("message", _id);
+                map.put("message", body);
 
                 Log.i("test", "_id=" + _id + " address=" + address + " body=" + body + " date=" + date + " type=" + type);
                 data.add(map);

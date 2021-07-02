@@ -22,7 +22,7 @@
         
         <variable
             name="presenter"
-            type="com.tzy.demo.presenter.Presenter1"
+            type="com.tzy.demo.activity.presenter.Presenter1"
             />
     </data>
     

@@ -2,7 +2,7 @@ package com.tzy.demo.activity.websocket;
 
 import androidx.annotation.Nullable;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.tzy.demo.R;
 
 import java.util.List;

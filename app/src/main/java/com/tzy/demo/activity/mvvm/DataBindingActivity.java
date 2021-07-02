@@ -7,7 +7,7 @@ import com.tzy.demo.R;
 import com.tzy.demo.bean.User;
 import com.tzy.demo.bean.User2;
 import com.tzy.demo.databinding.Test;
-import com.tzy.demo.presenter.Presenter1;
+import com.tzy.demo.activity.presenter.Presenter1;
 
 public class DataBindingActivity extends AppCompatActivity {
 

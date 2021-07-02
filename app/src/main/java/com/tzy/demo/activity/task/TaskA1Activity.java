@@ -2,11 +2,10 @@ package com.tzy.demo.activity.task;
 
 import android.content.Intent;
 import android.os.Handler;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import com.tzy.demo.R;
-import com.tzy.demo.activity.BaseActivity;
+import com.tzy.demo.activity.base.BaseActivity;
 import com.tzy.demo.databinding.ActivityTaskA1Binding;
 
 public class TaskA1Activity extends BaseActivity<ActivityTaskA1Binding> {

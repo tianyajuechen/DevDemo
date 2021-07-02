@@ -1,4 +1,4 @@
-package com.tzy.demo.activity;
+package com.tzy.demo.activity.base;
 
 import android.app.Activity;
 import android.os.Build;

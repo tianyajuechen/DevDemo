@@ -1,4 +1,4 @@
-package com.tzy.demo.activity;
+package com.tzy.demo.activity.web;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 
 import com.tzy.demo.R;
+import com.tzy.demo.activity.base.BaseWebviewActivity;
 
 /**
  * Created by YANG

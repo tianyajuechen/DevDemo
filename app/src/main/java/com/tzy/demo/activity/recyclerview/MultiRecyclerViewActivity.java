@@ -3,9 +3,9 @@ package com.tzy.demo.activity.recyclerview;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.tzy.demo.R;
-import com.tzy.demo.activity.BaseActivity;
+import com.tzy.demo.activity.base.BaseActivity;
 import com.tzy.demo.bean.User;
 import com.tzy.demo.databinding.ActivityMultiRecyclerviewBinding;
 
@@ -42,7 +42,7 @@ public class MultiRecyclerViewActivity extends BaseActivity<ActivityMultiRecycle
 //            }
 //        });
         UserAdapter adapter = new UserAdapter(userList);
-        adapter.setSpanSizeLookup((gridLayoutManager, i) -> {
+        adapter.setGridSpanSizeLookup((gridLayoutManager, viewType, i) -> {
             if (i < 1) {
                 return 3;
             }

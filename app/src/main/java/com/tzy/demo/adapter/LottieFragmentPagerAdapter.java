@@ -3,7 +3,7 @@ package com.tzy.demo.adapter;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import com.tzy.demo.fragment.LottieFragment;
+import com.tzy.demo.activity.animator.LottieFragment;
 
 /**
  * Created by tang

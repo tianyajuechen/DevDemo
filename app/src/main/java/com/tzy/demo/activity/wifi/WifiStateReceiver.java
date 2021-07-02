@@ -1,4 +1,4 @@
-package com.tzy.demo.wifi;
+package com.tzy.demo.activity.wifi;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

@@ -3,6 +3,9 @@ package com.tzy.demo.activity.recyclerview;
 import android.graphics.Rect;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import com.chad.library.adapter.base.listener.OnItemChildClickListener;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.chad.library.adapter.base.listener.OnLoadMoreListener;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -48,9 +51,9 @@ public class RefreshActivity3 extends AppCompatActivity {
         mAdapter = new QuickAdapter(mNews, this);
         /*mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
         mAdapter.isFirstOnly(false);*/
-        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        mAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, final int position) {
+            public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
                 WeChatNewsBean bean = mAdapter.getItem(position);
                 Snackbar.make(view, bean.getId(), Snackbar.LENGTH_SHORT)
                         .setAction("DO", new View.OnClickListener() {
@@ -62,10 +65,12 @@ public class RefreshActivity3 extends AppCompatActivity {
                         .show();
             }
         });
-        mAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+
+        mAdapter.addChildClickViewIds(R.id.tv_title, R.id.tv_date, R.id.tv_desc);
+        mAdapter.setOnItemChildClickListener(new OnItemChildClickListener() {
             @Override
-            public void onItemChildClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
-                WeChatNewsBean bean = mAdapter.getItem(i);
+            public void onItemChildClick(@NonNull BaseQuickAdapter adapter, @NonNull View view, int position) {
+                WeChatNewsBean bean = mAdapter.getItem(position);
                 switch (view.getId()) {
                     case R.id.tv_date:
                         Snackbar.make(view, bean.getId(), Snackbar.LENGTH_SHORT).show();
@@ -81,15 +86,15 @@ public class RefreshActivity3 extends AppCompatActivity {
         });
 //        mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
 //        mAdapter.setNotDoAnimationCount(4);
-        mAdapter.setPreLoadNumber(1);
-        mAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+        mAdapter.getLoadMoreModule().setPreLoadNumber(1);
+        mAdapter.getLoadMoreModule().setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
-            public void onLoadMoreRequested() {
+            public void onLoadMore() {
                 getNews();
             }
-        }, mRv);
+        });
         //默认第一次加载会进入回调，如果不需要可以配置：
-        mAdapter.disableLoadMoreIfNotFullPage();
+        mAdapter.getLoadMoreModule().setEnableLoadMoreIfNotFullPage(false);
         /*mAdapter.setStartUpFetchPosition(0);
         mAdapter.setUpFetchEnable(true);
         mAdapter.setUpFetchListener(new BaseQuickAdapter.UpFetchListener() {
@@ -125,8 +130,8 @@ public class RefreshActivity3 extends AppCompatActivity {
         call.enqueue(new Callback<JuHeResp>() {
             @Override
             public void onResponse(Call<JuHeResp> call, Response<JuHeResp> response) {
-                mAdapter.loadMoreComplete();
-                mAdapter.setUpFetching(false);
+                mAdapter.getLoadMoreModule().loadMoreComplete();
+//                mAdapter.getLoadMoreModule().setUpFetching(false);
                 if (!response.isSuccessful()) {
                     return;
                 }

@@ -1,4 +1,4 @@
-package com.tzy.demo.wifi;
+package com.tzy.demo.activity.wifi;
 
 
 import java.io.BufferedReader;
@@ -48,7 +48,9 @@ public class WifiManage {
                 if (dataInputStream != null) {
                     dataInputStream.close();
                 }
-                process.destroy();
+                if (process != null) {
+                    process.destroy();
+                }
             } catch (Exception e) {
                 throw e;
             }

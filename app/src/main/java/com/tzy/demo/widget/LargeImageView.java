@@ -68,7 +68,7 @@ public class LargeImageView extends View implements GestureDetector.OnGestureLis
         //获取图片的宽高
         InputStream is = null;
         try {
-            is = context.getResources().getAssets().open("mipmap-xxhdpi/landscape.jpg");
+            is = context.getResources().getAssets().open("landscape.jpg");
             BitmapFactory.Options temOptions = new BitmapFactory.Options();
             temOptions.inJustDecodeBounds = true;
             BitmapFactory.decodeStream(is, null, temOptions);

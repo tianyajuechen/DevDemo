@@ -11,10 +11,9 @@ import android.os.IBinder
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.SeekBar
-import androidx.appcompat.widget.AppCompatSeekBar
 import com.tzy.demo.BuildConfig
 import com.tzy.demo.R
-import com.tzy.demo.activity.BaseActivity
+import com.tzy.demo.activity.base.BaseActivity
 import com.tzy.demo.databinding.ActivityMediaPlayerBinding
 
 /**

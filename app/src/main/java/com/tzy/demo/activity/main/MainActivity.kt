@@ -1,24 +1,19 @@
 package com.tzy.demo.activity.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.tzy.demo.R
 import com.tzy.demo.activity.animator.LottieActivity
 import com.tzy.demo.activity.animator.ObjectAnimatorActivity
 import com.tzy.demo.activity.base.BaseActivity
 import com.tzy.demo.activity.camera.CameraActivity
 import com.tzy.demo.activity.downloadprogress.OkhttpDownloadActivity
-import com.tzy.demo.activity.font.FontActivity
 import com.tzy.demo.activity.js.TestJsActivity
 import com.tzy.demo.activity.largeimage.LargeImageActivity
 import com.tzy.demo.activity.material.CoordinatorActivity
 import com.tzy.demo.activity.media.MediaPlayerActivity
 import com.tzy.demo.activity.recyclerview.MultiRecyclerViewActivity
-import com.tzy.demo.activity.recyclerview.TestRefreshActivity
 import com.tzy.demo.activity.sms.ReadSmsActivity
 import com.tzy.demo.activity.stackview.StackViewActivity
 import com.tzy.demo.activity.tablayout.TabLayoutActivity
@@ -57,7 +52,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             , MainItemBean("文件下载进度", OkhttpDownloadActivity::class.java)
             , MainItemBean("JS交互", TestJsActivity::class.java)
             , MainItemBean("Coordinator", CoordinatorActivity::class.java)
-            , MainItemBean("字体大小", FontActivity::class.java)
             , MainItemBean("StackView", StackViewActivity::class.java)
             , MainItemBean("加载大图", LargeImageActivity::class.java)
             , MainItemBean("ExoPlayer多音频同时播放", MediaPlayerActivity::class.java)

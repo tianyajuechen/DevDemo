@@ -1,13 +1,15 @@
 package com.tzy.demo.activity.tablayout;
 
-import androidx.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import androidx.annotation.Nullable;
-import com.google.android.material.tabs.TabLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
+import com.google.android.material.tabs.TabLayout;
 import com.tzy.demo.R;
 import com.tzy.demo.databinding.ActivityTabLayoutBinding;
 
@@ -32,6 +34,15 @@ public class TabLayoutActivity extends AppCompatActivity {
             tab.setText(tabs.get(i));
             mBinding.tablayout.addTab(tab);
         }
+
+        DisplayMetrics appDisplayMetrics = getApplication().getResources().getDisplayMetrics();
+        DisplayMetrics activityDisplayMetrics = getResources().getDisplayMetrics();
+        Log.e("density", "初始Application Density：" + appDisplayMetrics.density);
+        Log.e("density", "初始Activity Density：" + activityDisplayMetrics.density);
+        activityDisplayMetrics.density = 8;
+        appDisplayMetrics.density = 5;
+        Log.e("density", "修改后Application Density：" + appDisplayMetrics.density);
+        Log.e("density", "修改后Activity Density：" + activityDisplayMetrics.density);
     }
 
     class MyAdapter extends FragmentPagerAdapter {

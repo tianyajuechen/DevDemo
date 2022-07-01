@@ -37,6 +37,7 @@ captures/
 .idea/workspace.xml
 .idea/libraries
 /.idea/assetWizardSettings.xml
+/.idea/deploymentTargetDropDown.xml
 
 # Keystore files
 *.jks

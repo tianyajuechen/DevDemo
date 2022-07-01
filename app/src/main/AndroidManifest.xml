@@ -154,6 +154,12 @@
 
         <activity android:name=".activity.media.MediaPlayerActivity"/>
 
+        <activity android:name=".activity.material.CoordinatorActivity"/>
+
+        <activity android:name=".activity.font.FontActivity"/>
+
+        <activity android:name=".activity.stackview.StackViewActivity"/>
+
         <receiver
             android:name=".activity.sms.SmsBroadcastReceiver"
             android:enabled="true"

@@ -12,12 +12,15 @@ import com.tzy.demo.activity.animator.ObjectAnimatorActivity
 import com.tzy.demo.activity.base.BaseActivity
 import com.tzy.demo.activity.camera.CameraActivity
 import com.tzy.demo.activity.downloadprogress.OkhttpDownloadActivity
+import com.tzy.demo.activity.font.FontActivity
 import com.tzy.demo.activity.js.TestJsActivity
 import com.tzy.demo.activity.largeimage.LargeImageActivity
+import com.tzy.demo.activity.material.CoordinatorActivity
 import com.tzy.demo.activity.media.MediaPlayerActivity
 import com.tzy.demo.activity.recyclerview.MultiRecyclerViewActivity
 import com.tzy.demo.activity.recyclerview.TestRefreshActivity
 import com.tzy.demo.activity.sms.ReadSmsActivity
+import com.tzy.demo.activity.stackview.StackViewActivity
 import com.tzy.demo.activity.tablayout.TabLayoutActivity
 import com.tzy.demo.activity.task.TaskA1Activity
 import com.tzy.demo.activity.web.CommonWebviewActivity
@@ -53,6 +56,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             , MainItemBean("拍照", CameraActivity::class.java)
             , MainItemBean("文件下载进度", OkhttpDownloadActivity::class.java)
             , MainItemBean("JS交互", TestJsActivity::class.java)
+            , MainItemBean("Coordinator", CoordinatorActivity::class.java)
+            , MainItemBean("字体大小", FontActivity::class.java)
+            , MainItemBean("StackView", StackViewActivity::class.java)
             , MainItemBean("加载大图", LargeImageActivity::class.java)
             , MainItemBean("ExoPlayer多音频同时播放", MediaPlayerActivity::class.java)
             , MainItemBean("MultiRecyclerView", MultiRecyclerViewActivity::class.java)
@@ -61,6 +67,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             , MainItemBean("Web", CommonWebviewActivity::class.java)
             , MainItemBean("WebSocket", WebSocketActivity::class.java)
             , MainItemBean("查看Wifi密码", WiFiPasswordActivity::class.java)
-            , MainItemBean("读取短信", ReadSmsActivity::class.java))
+            , MainItemBean("读取短信", ReadSmsActivity::class.java)
+    )
 
 }

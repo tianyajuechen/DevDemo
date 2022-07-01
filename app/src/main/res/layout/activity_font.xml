@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/serif_heavy"
+            android:text="思源宋体 Heavy 字号15"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/serif_bold"
+            android:text="思源宋体 Bold 字号15"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/serif_regular"
+            android:textStyle="bold"
+            android:text="思源宋体 regular加粗 字号15"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/serif_bold"
+            android:text="思源宋体 Bold 字号30"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/serif_regular"
+            android:textStyle="bold"
+            android:text="思源宋体 regular加粗 字号30"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/serif_bold"
+            android:text="思源宋体 Bold 字号25"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/serif_regular"
+            android:textStyle="bold"
+            android:text="思源宋体 regular加粗 字号25"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/serif_bold"
+            android:text="思源宋体 Bold 字号20"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/serif_regular"
+            android:textStyle="bold"
+            android:text="思源宋体 regular加粗 字号20"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/serif_bold"
+            android:text="思源宋体 Bold 字号15"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/serif_regular"
+            android:textStyle="bold"
+            android:text="思源宋体 regular加粗 字号15"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="10sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/serif_bold"
+            android:text="思源宋体 Bold 字号10"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/serif_regular"
+            android:textStyle="bold"
+            android:text="思源宋体 regular加粗 字号10"
+            />
+
+    </LinearLayout>
+</layout>

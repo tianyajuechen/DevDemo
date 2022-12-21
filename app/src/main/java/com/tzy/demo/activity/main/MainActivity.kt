@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tzy.demo.R
-import com.tzy.demo.activity.animator.LottieActivity
 import com.tzy.demo.activity.animator.ObjectAnimatorActivity
 import com.tzy.demo.activity.base.BaseActivity
 import com.tzy.demo.activity.camera.CameraActivity
@@ -14,6 +13,8 @@ import com.tzy.demo.activity.largeimage.LargeImageActivity
 import com.tzy.demo.activity.material.CoordinatorActivity
 import com.tzy.demo.activity.media.MediaPlayerActivity
 import com.tzy.demo.activity.recyclerview.MultiRecyclerViewActivity
+import com.tzy.demo.activity.scheme.SchemeTestActivity
+import com.tzy.demo.activity.serialize.SerializeTestActivity
 import com.tzy.demo.activity.sms.ReadSmsActivity
 import com.tzy.demo.activity.stackview.StackViewActivity
 import com.tzy.demo.activity.tablayout.TabLayoutActivity
@@ -46,22 +47,24 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         }
     }
 
-    private fun getFunctionList() = arrayListOf(MainItemBean("Lottie动画", LottieActivity::class.java)
-            , MainItemBean("Object动画", ObjectAnimatorActivity::class.java)
-            , MainItemBean("拍照", CameraActivity::class.java)
-            , MainItemBean("文件下载进度", OkhttpDownloadActivity::class.java)
-            , MainItemBean("JS交互", TestJsActivity::class.java)
-            , MainItemBean("Coordinator", CoordinatorActivity::class.java)
-            , MainItemBean("StackView", StackViewActivity::class.java)
-            , MainItemBean("加载大图", LargeImageActivity::class.java)
-            , MainItemBean("ExoPlayer多音频同时播放", MediaPlayerActivity::class.java)
-            , MainItemBean("MultiRecyclerView", MultiRecyclerViewActivity::class.java)
-            , MainItemBean("TabLayout", TabLayoutActivity::class.java)
-            , MainItemBean("任务栈测试", TaskA1Activity::class.java)
-            , MainItemBean("Web", CommonWebviewActivity::class.java)
-            , MainItemBean("WebSocket", WebSocketActivity::class.java)
-            , MainItemBean("查看Wifi密码", WiFiPasswordActivity::class.java)
-            , MainItemBean("读取短信", ReadSmsActivity::class.java)
+    private fun getFunctionList() = arrayListOf(
+        MainItemBean("Scheme测试", SchemeTestActivity::class.java),
+        MainItemBean("对象序列化测试", SerializeTestActivity::class.java),
+        MainItemBean("Object动画", ObjectAnimatorActivity::class.java),
+        MainItemBean("拍照", CameraActivity::class.java),
+        MainItemBean("文件下载进度", OkhttpDownloadActivity::class.java),
+        MainItemBean("JS交互", TestJsActivity::class.java),
+        MainItemBean("Coordinator", CoordinatorActivity::class.java),
+        MainItemBean("StackView", StackViewActivity::class.java),
+        MainItemBean("加载大图", LargeImageActivity::class.java),
+        MainItemBean("ExoPlayer多音频同时播放", MediaPlayerActivity::class.java),
+        MainItemBean("MultiRecyclerView", MultiRecyclerViewActivity::class.java),
+        MainItemBean("TabLayout", TabLayoutActivity::class.java),
+        MainItemBean("任务栈测试", TaskA1Activity::class.java),
+        MainItemBean("Web", CommonWebviewActivity::class.java),
+        MainItemBean("WebSocket", WebSocketActivity::class.java),
+        MainItemBean("查看Wifi密码", WiFiPasswordActivity::class.java),
+        MainItemBean("读取短信", ReadSmsActivity::class.java)
     )
 
 }

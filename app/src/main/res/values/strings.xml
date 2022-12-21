@@ -10,4 +10,7 @@
     <string name="forest">Forest</string>
     <string name="night">Night Sounds</string>
     <string name="cat">Cat Purr</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">添加小组件</string>
+    <string name="app_widget_description">This is an app widget description</string>
 </resources>

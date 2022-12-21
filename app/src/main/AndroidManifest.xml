@@ -156,9 +156,11 @@
 
         <activity android:name=".activity.material.CoordinatorActivity"/>
 
-        <activity android:name=".activity.font.FontActivity"/>
-
         <activity android:name=".activity.stackview.StackViewActivity"/>
+
+        <activity android:name=".activity.scheme.SchemeTestActivity"/>
+
+        <activity android:name=".activity.serialize.SerializeTestActivity"/>
 
         <receiver
             android:name=".activity.sms.SmsBroadcastReceiver"
@@ -168,6 +170,22 @@
             <intent-filter android:priority="1000">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".activity.appwidget.DateAppWidget"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.tzy.demo.activity.appwidget.DateAppWidget.START"/>
+                <action android:name="com.tzy.demo.activity.appwidget.DateAppWidget.PAUSE"/>
+                <action android:name="com.tzy.demo.activity.appwidget.DateAppWidget.RESUME"/>
+                <action android:name="com.tzy.demo.activity.appwidget.DateAppWidget.STOP"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/date_app_widget_info"/>
         </receiver>
 
         <!-- 推必达 -->

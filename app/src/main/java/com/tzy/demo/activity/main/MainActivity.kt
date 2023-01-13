@@ -19,6 +19,7 @@ import com.tzy.demo.activity.sms.ReadSmsActivity
 import com.tzy.demo.activity.stackview.StackViewActivity
 import com.tzy.demo.activity.tablayout.TabLayoutActivity
 import com.tzy.demo.activity.task.TaskA1Activity
+import com.tzy.demo.activity.wallpaper.WallpaperActivity
 import com.tzy.demo.activity.web.CommonWebviewActivity
 import com.tzy.demo.activity.websocket.WebSocketActivity
 import com.tzy.demo.activity.wifi.WiFiPasswordActivity
@@ -50,6 +51,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private fun getFunctionList() = arrayListOf(
         MainItemBean("Scheme测试", SchemeTestActivity::class.java),
         MainItemBean("对象序列化测试", SerializeTestActivity::class.java),
+        MainItemBean("动态壁纸", WallpaperActivity::class.java),
         MainItemBean("Object动画", ObjectAnimatorActivity::class.java),
         MainItemBean("拍照", CameraActivity::class.java),
         MainItemBean("文件下载进度", OkhttpDownloadActivity::class.java),

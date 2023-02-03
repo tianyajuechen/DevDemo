@@ -17,5 +17,12 @@
             android:text="粒子效果"
             />
 
+        <Button
+            android:id="@+id/bt_box2d"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Box2D"
+            />
+
     </LinearLayout>
 </layout>

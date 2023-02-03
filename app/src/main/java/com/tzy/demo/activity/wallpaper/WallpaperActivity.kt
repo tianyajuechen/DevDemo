@@ -26,5 +26,9 @@ class WallpaperActivity : BaseActivity<ActivityWallpaperBinding>() {
             )
             startActivityForResult(intent, 1)
         }
+
+        mBinding.btBox2d.setOnClickListener {
+            startActivity(Intent(this, Box2dActivity::class.java))
+        }
     }
 }

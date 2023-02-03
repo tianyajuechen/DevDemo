@@ -158,6 +158,8 @@
 
         <activity android:name=".activity.wallpaper.WallpaperActivity"/>
 
+        <activity android:name=".activity.wallpaper.Box2dActivity"/>
+
         <receiver
             android:name=".activity.sms.SmsBroadcastReceiver"
             android:enabled="true"

@@ -25,6 +25,7 @@ class ParticleEffectsWallpaper : WallpaperService() {
     inner class MyEngin : Engine() {
 
         var bitmap: Bitmap? = null
+        var bg: Bitmap? = null
         var saveCount = 1
         var canCreate = false
         var canDraw = false
@@ -95,28 +96,21 @@ class ParticleEffectsWallpaper : WallpaperService() {
             super.onOffsetsChanged(xOffset, yOffset, xOffsetStep, yOffsetStep, xPixelOffset, yPixelOffset)
         }
 
-        override fun onDesiredSizeChanged(desiredWidth: Int, desiredHeight: Int) {
-            super.onDesiredSizeChanged(desiredWidth, desiredHeight)
-        }
-
-        override fun onSurfaceChanged(holder: SurfaceHolder?, format: Int, width: Int, height: Int) {
-            super.onSurfaceChanged(holder, format, width, height)
-            this.width = width
-            this.height = height
-            maxDistance = if (width <= height) {
-                width * 7 / 10
-            } else {
-                height * 7 / 10
-            }
-        }
-
         override fun onSurfaceRedrawNeeded(holder: SurfaceHolder?) {
             super.onSurfaceRedrawNeeded(holder)
         }
 
         override fun onSurfaceCreated(holder: SurfaceHolder) {
             super.onSurfaceCreated(holder)
+            width = holder.surfaceFrame.width()
+            height = holder.surfaceFrame.height()
+            maxDistance = if (width <= height) {
+                width * 7 / 10
+            } else {
+                height * 7 / 10
+            }
             bitmap = BitmapFactory.decodeStream(resources.assets.open("gifts/1.png"))
+            bg = BitmapFactory.decodeResource(resources, R.drawable.ic_girl_6)
             val canvas = holder.lockCanvas()
             drawBg(canvas)
             holder.unlockCanvasAndPost(canvas)
@@ -130,7 +124,11 @@ class ParticleEffectsWallpaper : WallpaperService() {
         private fun drawBg(canvas: Canvas) {
 //            canvas.drawColor(Color.RED)
             canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
-            canvas.drawBitmap(BitmapFactory.decodeResource(resources, R.drawable.ic_girl_6), 0f, 0f, null)
+            bg?.let {
+                val src = Rect(0, 0, it.width, it.height)
+                val dst = Rect(0, 0, width, height)
+                canvas.drawBitmap(it, src, dst, null)
+            }
         }
 
         private fun dealTouchEvent(event: MotionEvent) {

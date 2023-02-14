@@ -30,5 +30,14 @@ class WallpaperActivity : BaseActivity<ActivityWallpaperBinding>() {
         mBinding.btBox2d.setOnClickListener {
             startActivity(Intent(this, Box2dActivity::class.java))
         }
+
+        mBinding.btParallax.setOnClickListener {
+            val intent = Intent(WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER)
+            intent.putExtra(
+                WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT,
+                ComponentName(this, Parallax3DWallpaper::class.java)
+            )
+            startActivityForResult(intent, 1)
+        }
     }
 }

@@ -22,7 +22,7 @@ class Box2dSensorLogic {
     constructor(world: World, context: Context) {
         //获得重力感应硬件控制器
         manager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        sensor = manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        sensor = manager.getDefaultSensor(Sensor.TYPE_GRAVITY)
         listener = object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent) {
                 val x = event.values[SensorManager.DATA_X]

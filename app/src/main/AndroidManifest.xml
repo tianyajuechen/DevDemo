@@ -209,6 +209,23 @@
 
         </service>
 
+        <service
+            android:name=".activity.wallpaper.Parallax3DWallpaper"
+            android:enabled="true"
+            android:permission="android.permission.BIND_WALLPAPER"
+            >
+
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/live_wallpaper"
+                />
+
+        </service>
+
         <!-- 推必达 -->
         <meta-data
             android:name="UPA_MPA_CHANNELID"

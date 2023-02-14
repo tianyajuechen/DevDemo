@@ -95,7 +95,7 @@ class Box2dEffectView(private val context: Context) : ApplicationListener {
 
     companion object {
         const val TAG = "Box2dEffectView"
-        const val PXTM = 30F
+        const val PXTM = 60F //1米等于60像素
         const val MAX_BODY_COUNT = 80
         const val WALL = "wall"
         const val MIN_OFFSET = 50
@@ -190,7 +190,7 @@ class Box2dEffectView(private val context: Context) : ApplicationListener {
             userData.runtimes += deltaTime
 
             //body坐标远点是中心点，单位是米，libgdx坐标远点在左下角，单位是像素，所以这里需要转换下
-            val vector2 = Transform.mtp(body.position.x, body.position.y, Vector2(2F, 2F), PXTM)
+            val vector2 = Transform.mtp(body.position.x, body.position.y, Vector2(1F, 1F), PXTM)
             val widthSize = 60F
             spriteBatch.setColor(1F, 1F, 1F, 1F)
             val angle = (body.transform.rotation * 180 / Math.PI).toFloat()
@@ -219,7 +219,7 @@ class Box2dEffectView(private val context: Context) : ApplicationListener {
             val body = world.createBody(bodyDef)
             body.userData = Box2dInfoBean()
             body.isFixedRotation = false
-            val shape = CircleShape().apply { radius = 2F }
+            val shape = CircleShape().apply { radius = 1F }
             val fixtureDef = FixtureDef().apply {
                 this.shape = shape
                 density = 1.5F

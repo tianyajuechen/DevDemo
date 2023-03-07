@@ -27,9 +27,10 @@ class Box2dEffectView(private val context: Context) : ApplicationListener {
     private lateinit var spriteBatch: SpriteBatch
     private lateinit var textureRegion: TextureRegion
     private val bodyList = mutableListOf<Body>()
-    private var isDebugRenderer = true
+    private var isDebugRenderer = false
     private var _canDraw = true
 
+    private lateinit var bgImg: Texture //背景图
     private var touchBody: Body? = null //触摸的body
     private lateinit var groundBody: Body //地面body
     private val touchVector = Vector3() //触摸点坐标
@@ -105,7 +106,8 @@ class Box2dEffectView(private val context: Context) : ApplicationListener {
         val width = Gdx.graphics.width
         val height = Gdx.graphics.height
 
-        val texture = Texture(Gdx.files.internal("box2d/star.png"))
+        bgImg = Texture(Gdx.files.internal("bg/1.png"))
+        val texture = Texture(Gdx.files.internal("particle/1.png"))
         textureRegion = TextureRegion(texture)
 
         val cameraWidth = width / PXTM
@@ -133,6 +135,7 @@ class Box2dEffectView(private val context: Context) : ApplicationListener {
     override fun render() {
         Gdx.gl.glClearColor(0F, 0F, 0F, 0F)
         Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT)
+
         synchronized(Box2dEffectView::class.java) {
             if (!_canDraw) {
                 destroyAll()
@@ -184,6 +187,7 @@ class Box2dEffectView(private val context: Context) : ApplicationListener {
      */
     private fun drawBody(deltaTime: Float) {
         spriteBatch.begin()
+        spriteBatch.draw(bgImg, 0F, 0F, Gdx.graphics.width.toFloat(), Gdx.graphics.height.toFloat())
         for (body in bodyList) {
             val userData = body.userData as Box2dInfoBean
             //更新时间

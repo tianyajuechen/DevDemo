@@ -7,8 +7,6 @@ import android.service.wallpaper.WallpaperService
 import android.util.Log
 import android.view.MotionEvent
 import android.view.SurfaceHolder
-import android.view.WindowInsets
-import com.tzy.demo.R
 import com.tzy.demo.bean.ParticleBean
 import kotlin.concurrent.thread
 
@@ -38,66 +36,20 @@ class ParticleEffectsWallpaper : WallpaperService() {
         var maxDistance = 700
         var createThread: Thread? = null
         var drawThread: Thread? = null
-
-        override fun getSurfaceHolder(): SurfaceHolder {
-            return super.getSurfaceHolder()
-        }
-
-        override fun getDesiredMinimumWidth(): Int {
-            return super.getDesiredMinimumWidth()
-        }
-
-        override fun getDesiredMinimumHeight(): Int {
-            return super.getDesiredMinimumHeight()
-        }
-
-        override fun isVisible(): Boolean {
-            return super.isVisible()
-        }
-
-        override fun isPreview(): Boolean {
-            return super.isPreview()
-        }
-
-        override fun setTouchEventsEnabled(enabled: Boolean) {
-            super.setTouchEventsEnabled(enabled)
-        }
-
-        override fun onCreate(surfaceHolder: SurfaceHolder?) {
-            super.onCreate(surfaceHolder)
-        }
-
-        override fun onDestroy() {
-            super.onDestroy()
-        }
+        val bgPath = "bg/1.png"
+        val particlePath = "particle/1.png"
 
         override fun onVisibilityChanged(visible: Boolean) {
             super.onVisibilityChanged(visible)
-        }
-
-        override fun onApplyWindowInsets(insets: WindowInsets?) {
-            super.onApplyWindowInsets(insets)
+            if (!visible) {
+                canDraw = false
+            }
         }
 
         override fun onTouchEvent(event: MotionEvent) {
             super.onTouchEvent(event)
             Log.e(TAG, "action:${event.action} x:${event.rawX} y:${event.rawY}")
             dealTouchEvent(event)
-        }
-
-        override fun onOffsetsChanged(
-            xOffset: Float,
-            yOffset: Float,
-            xOffsetStep: Float,
-            yOffsetStep: Float,
-            xPixelOffset: Int,
-            yPixelOffset: Int
-        ) {
-            super.onOffsetsChanged(xOffset, yOffset, xOffsetStep, yOffsetStep, xPixelOffset, yPixelOffset)
-        }
-
-        override fun onSurfaceRedrawNeeded(holder: SurfaceHolder?) {
-            super.onSurfaceRedrawNeeded(holder)
         }
 
         override fun onSurfaceCreated(holder: SurfaceHolder) {
@@ -109,8 +61,9 @@ class ParticleEffectsWallpaper : WallpaperService() {
             } else {
                 height * 7 / 10
             }
-            bitmap = BitmapFactory.decodeStream(resources.assets.open("gifts/1.png"))
-            bg = BitmapFactory.decodeResource(resources, R.drawable.ic_girl_6)
+            bitmap = BitmapFactory.decodeStream(resources.assets.open(particlePath))
+//            bg = BitmapFactory.decodeResource(resources, R.drawable.ic_girl_6)
+            bg = BitmapFactory.decodeStream(resources.assets.open(bgPath))
             val canvas = holder.lockCanvas()
             drawBg(canvas)
             holder.unlockCanvasAndPost(canvas)
@@ -164,7 +117,7 @@ class ParticleEffectsWallpaper : WallpaperService() {
         private fun getIconBitmap(): Bitmap {
             if (bitmap == null) {
                 bitmap = try {
-                    BitmapFactory.decodeStream(resources.assets.open("gifts/1.png"))
+                    BitmapFactory.decodeStream(resources.assets.open(particlePath))
                 } catch (e: Exception) {
                     Bitmap.createBitmap(0, 0, Bitmap.Config.ARGB_8888)
                 }

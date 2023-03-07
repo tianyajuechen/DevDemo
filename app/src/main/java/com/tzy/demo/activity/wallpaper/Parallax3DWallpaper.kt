@@ -33,6 +33,7 @@ class Parallax3DWallpaper : WallpaperService() {
          * 1：原图高度放大为屏幕高度1.2倍，宽度等比放大，从图片中心区域取屏幕宽高尺寸的图片，上下左右最大偏移量为屏幕高度10%
          */
         private val drawMode = 0
+        private val folderName = "01"
         private var bitmap1: Bitmap? = null //底部图片
         private var bitmap2: Bitmap? = null //中间图片
         private var bitmap3: Bitmap? = null //顶部图片
@@ -80,14 +81,14 @@ class Parallax3DWallpaper : WallpaperService() {
             width = holder.surfaceFrame.width()
             height = holder.surfaceFrame.height()
             if (drawMode == 0) {
-                bitmap1 = createBitmap("parallax3d/sikadi_1.png")
-                bitmap2 = createBitmap("parallax3d/sikadi_2.png")
-                bitmap3 = createBitmap("parallax3d/sikadi_3.png")
+                bitmap1 = createBitmap("parallax3d/${folderName}/1.png")
+                bitmap2 = createBitmap("parallax3d/${folderName}/2.png")
+                bitmap3 = createBitmap("parallax3d/${folderName}/3.png")
                 maxOffsetPx2 = (bitmap1!!.height * 0.06F).toInt()
             } else {
-                bitmap1 = createBitmap2("parallax3d/sikadi_1.png")
-                bitmap2 = createBitmap2("parallax3d/sikadi_2.png")
-                bitmap3 = createBitmap2("parallax3d/sikadi_3.png")
+                bitmap1 = createBitmap2("parallax3d/${folderName}/1.png")
+                bitmap2 = createBitmap2("parallax3d/${folderName}/2.png")
+                bitmap3 = createBitmap2("parallax3d/${folderName}/3.png")
                 maxOffsetPx2 = (bitmap1!!.height * 0.05F).toInt()
             }
             maxOffsetPx1 = (maxOffsetPx2 * 1.4F).toInt()

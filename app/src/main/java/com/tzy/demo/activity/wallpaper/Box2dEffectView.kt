@@ -106,8 +106,8 @@ class Box2dEffectView(private val context: Context) : ApplicationListener {
         val width = Gdx.graphics.width
         val height = Gdx.graphics.height
 
-        bgImg = Texture(Gdx.files.internal("bg/1.png"))
-        val texture = Texture(Gdx.files.internal("particle/1.png"))
+        bgImg = Texture(Gdx.files.internal("bg/3.png"))
+        val texture = Texture(Gdx.files.internal("particle/2.png"))
         textureRegion = TextureRegion(texture)
 
         val cameraWidth = width / PXTM

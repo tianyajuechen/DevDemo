@@ -36,8 +36,8 @@ class ParticleEffectsWallpaper : WallpaperService() {
         var maxDistance = 700
         var createThread: Thread? = null
         var drawThread: Thread? = null
-        val bgPath = "bg/1.png"
-        val particlePath = "particle/1.png"
+        val bgPath = "bg/3.png"
+        val particlePath = "particle/2.png"
 
         override fun onVisibilityChanged(visible: Boolean) {
             super.onVisibilityChanged(visible)

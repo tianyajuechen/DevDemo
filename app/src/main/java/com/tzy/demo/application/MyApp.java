@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder;
 import com.tzy.demo.api.APIService;
 import com.tzy.demo.finals.Urls;
 import com.tzy.demo.okhttp.OkHttpUtil;
+import com.tzy.demo.utils.DisplayUtil;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -29,7 +30,7 @@ public class MyApp extends Application {
         super.onCreate();
         mApp = this;
         mContext = this.getApplicationContext();
-
+        DisplayUtil.init(this);
         initRetrofit();
 
 //        WebView.setWebContentsDebuggingEnabled(true);

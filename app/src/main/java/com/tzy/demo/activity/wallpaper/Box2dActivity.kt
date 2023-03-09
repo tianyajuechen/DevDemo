@@ -21,4 +21,8 @@ class Box2dActivity : BaseActivity<ActivityBox2dBinding>(), AndroidFragmentAppli
     override fun exit() {
 
     }
+
+    override fun isFullScreen(): Boolean {
+        return true
+    }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/binding1"
+            layout="@layout/layout_databinding_1"
+            />
+
+        <include
+            android:id="@+id/binding2"
+            layout="@layout/layout_databinding_2"/>
+
+    </LinearLayout>
+</layout>

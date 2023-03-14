@@ -119,6 +119,9 @@
 
         <activity android:name=".activity.mvvm.DataBindingActivity"/>
 
+        <activity android:name=".activity.mvvm.DataBindingTestActivity"
+            android:configChanges="orientation"/>
+
         <activity android:name=".activity.downloadprogress.OkhttpDownloadActivity"/>
 
         <activity

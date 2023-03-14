@@ -12,6 +12,7 @@ import com.tzy.demo.activity.js.TestJsActivity
 import com.tzy.demo.activity.largeimage.LargeImageActivity
 import com.tzy.demo.activity.material.CoordinatorActivity
 import com.tzy.demo.activity.media.MediaPlayerActivity
+import com.tzy.demo.activity.mvvm.DataBindingTestActivity
 import com.tzy.demo.activity.recyclerview.MultiRecyclerViewActivity
 import com.tzy.demo.activity.scheme.SchemeTestActivity
 import com.tzy.demo.activity.serialize.SerializeTestActivity
@@ -53,6 +54,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         MainItemBean("对象序列化测试", SerializeTestActivity::class.java),
         MainItemBean("动态壁纸", WallpaperActivity::class.java),
         MainItemBean("Object动画", ObjectAnimatorActivity::class.java),
+        MainItemBean("DataBinding布局嵌套测试", DataBindingTestActivity::class.java),
         MainItemBean("拍照", CameraActivity::class.java),
         MainItemBean("文件下载进度", OkhttpDownloadActivity::class.java),
         MainItemBean("JS交互", TestJsActivity::class.java),

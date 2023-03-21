@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.airbnb.lottie.LottieAnimationView;
 import com.tzy.demo.R;
@@ -46,10 +48,14 @@ public class LottieFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lottie, container, false);
         mLottieView = (LottieAnimationView) view.findViewById(R.id.lottie_view);
-//        mLottieView.setImageAssetsFolder(mFolder);
-//        mLottieView.setAnimation(mJson);
-        mLottieView.setAnimation("like.json");
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mLottieView.setImageAssetsFolder(mFolder);
+        mLottieView.setAnimation(mJson);
     }
 
     @Override

@@ -3,8 +3,12 @@ package com.tzy.demo.activity.base;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import androidx.annotation.MenuRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -42,6 +46,20 @@ public abstract class BaseActivity<B extends ViewDataBinding> extends AppCompatA
 
     public abstract void initEvent();
 
+    @MenuRes
+    protected int getMenuLayoutId() {
+        return 0;
+    }
+
+    /**
+     * 选中menu
+     *
+     * @param item
+     */
+    protected boolean onMenuSelected(@NonNull MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
     protected boolean isFullScreen() {
         return false;
     }
@@ -74,5 +92,23 @@ public abstract class BaseActivity<B extends ViewDataBinding> extends AppCompatA
             lp.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
         }
         getWindow().setAttributes(lp);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (getMenuLayoutId() != 0) {
+            getMenuInflater().inflate(getMenuLayoutId(), menu);
+            return true;
+        }
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return onMenuSelected(item);
     }
 }

@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tzy.demo.R
-import com.tzy.demo.activity.animator.ObjectAnimatorActivity
+import com.tzy.demo.activity.animator.AnimatorActivity
 import com.tzy.demo.activity.base.BaseActivity
 import com.tzy.demo.activity.camera.CameraActivity
 import com.tzy.demo.activity.downloadprogress.OkhttpDownloadActivity
@@ -53,7 +53,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         MainItemBean("Scheme测试", SchemeTestActivity::class.java),
         MainItemBean("对象序列化测试", SerializeTestActivity::class.java),
         MainItemBean("动态壁纸", WallpaperActivity::class.java),
-        MainItemBean("Object动画", ObjectAnimatorActivity::class.java),
+        MainItemBean("动画", AnimatorActivity::class.java),
         MainItemBean("DataBinding布局嵌套测试", DataBindingTestActivity::class.java),
         MainItemBean("拍照", CameraActivity::class.java),
         MainItemBean("文件下载进度", OkhttpDownloadActivity::class.java),

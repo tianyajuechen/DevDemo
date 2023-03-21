@@ -4,14 +4,12 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.tzy.demo.activity.animator.LottieFragment">
-    
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottie_view"
-        android:layout_width="match_parent"
+
+    <com.opensource.svgaplayer.SVGAImageView
+        android:id="@+id/svga"
         android:layout_height="match_parent"
-        android:scaleType="centerInside"
-        app:lottie_loop="true"
-        app:lottie_autoPlay="true"
-    />
+        android:layout_width="match_parent"
+        app:autoPlay="true"
+        />
 
 </FrameLayout>

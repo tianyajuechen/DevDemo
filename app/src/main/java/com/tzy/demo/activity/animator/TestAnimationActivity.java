@@ -24,7 +24,7 @@ public class TestAnimationActivity extends Activity {
         mTvLottie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(TestAnimationActivity.this, LottieActivity.class));
+                startActivity(new Intent(TestAnimationActivity.this, AnimatorActivity.class));
             }
         });
 

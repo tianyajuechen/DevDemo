@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 
 public class PackageInfoBean {
     private Drawable icon;
+    private int iconId;
     private String name;
     private String packageName;
     private String launcher;
@@ -27,6 +28,14 @@ public class PackageInfoBean {
 
     public void setIcon(Drawable icon) {
         this.icon = icon;
+    }
+
+    public int getIconId() {
+        return iconId;
+    }
+
+    public void setIconId(int iconId) {
+        this.iconId = iconId;
     }
 
     public String getName() {

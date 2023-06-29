@@ -97,5 +97,5 @@ dependencies {
 
     implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
     implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-    implementation "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
+//    implementation "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
 }

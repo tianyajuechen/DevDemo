@@ -169,8 +169,10 @@ class ParticleEffectsWallpaper : WallpaperService() {
                     }
                     tempList.clear()
                 }
-                surfaceHolder.unlockCanvasAndPost(canvas)
-                Thread.sleep(5)
+                if (canDraw) {
+                    surfaceHolder.unlockCanvasAndPost(canvas)
+                    Thread.sleep(5)
+                }
             }
         }
     }

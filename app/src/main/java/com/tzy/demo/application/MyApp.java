@@ -5,6 +5,7 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.tzy.demo.api.APIService;
+import com.tzy.demo.api.ApiKt;
 import com.tzy.demo.finals.Urls;
 import com.tzy.demo.okhttp.OkHttpUtil;
 import com.tzy.demo.utils.DisplayUtil;
@@ -20,6 +21,7 @@ public class MyApp extends Application {
     public Context mContext;
     public Retrofit mRetrofit;
     public APIService mApiService;
+    public ApiKt mApiKt;
 
     /**
      * 请求队列
@@ -66,6 +68,7 @@ public class MyApp extends Application {
                 .client(OkHttpUtil.getInstance())
                 .build();
         mApiService = mRetrofit.create(APIService.class);
+        mApiKt = mRetrofit.create(ApiKt.class);
     }
 
 }

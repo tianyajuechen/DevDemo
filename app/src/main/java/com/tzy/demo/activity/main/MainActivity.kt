@@ -15,6 +15,7 @@ import com.tzy.demo.activity.media.MediaPlayerActivity
 import com.tzy.demo.activity.mvvm.DataBindingTestActivity
 import com.tzy.demo.activity.packageinfo.PackageInfoActivity
 import com.tzy.demo.activity.recyclerview.MultiRecyclerViewActivity
+import com.tzy.demo.activity.recyclerview.TestRefreshActivity
 import com.tzy.demo.activity.scheme.SchemeTestActivity
 import com.tzy.demo.activity.serialize.SerializeTestActivity
 import com.tzy.demo.activity.sms.ReadSmsActivity
@@ -54,6 +55,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         MainItemBean("Scheme测试", SchemeTestActivity::class.java),
         MainItemBean("对象序列化测试", SerializeTestActivity::class.java),
         MainItemBean("动态壁纸", WallpaperActivity::class.java),
+        MainItemBean("测试刷新", TestRefreshActivity::class.java),
         MainItemBean("动画", AnimatorActivity::class.java),
         MainItemBean("获取已安装应用", PackageInfoActivity::class.java),
         MainItemBean("DataBinding布局嵌套测试", DataBindingTestActivity::class.java),

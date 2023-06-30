@@ -8,41 +8,47 @@ import android.widget.Button;
 
 
 import com.tzy.demo.R;
+import com.tzy.demo.activity.base.BaseActivity;
+import com.tzy.demo.activity.paging.PagingTestActivity;
+import com.tzy.demo.databinding.ActivityTestRefreshBinding;
 
-public class TestRefreshActivity extends AppCompatActivity {
+public class TestRefreshActivity extends BaseActivity<ActivityTestRefreshBinding> {
 
-    Button mBt1;
-    Button mBt2;
-    Button mBt3;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_refresh);
-        mBt1 = (Button) findViewById(R.id.bt_1);
-        mBt2 = (Button) findViewById(R.id.bt_2);
-        mBt3 = (Button) findViewById(R.id.bt_3);
+    public int getLayoutId() {
+        return R.layout.activity_test_refresh;
+    }
 
+    @Override
+    public void initView() {
 
-        mBt1.setOnClickListener(new View.OnClickListener() {
+    }
+
+    @Override
+    public void initEvent() {
+        mBinding.bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(TestRefreshActivity.this, RefreshActivity1.class));
             }
         });
 
-        mBt2.setOnClickListener(new View.OnClickListener() {
+        mBinding.bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(TestRefreshActivity.this, RefreshActivity2.class));
             }
         });
 
-        mBt3.setOnClickListener(new View.OnClickListener() {
+        mBinding.bt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(TestRefreshActivity.this, RefreshActivity3.class));
             }
         });
+
+        mBinding.bt4.setOnClickListener( v -> startActivity(new Intent(this, PagingTestActivity.class)));
     }
+
 }

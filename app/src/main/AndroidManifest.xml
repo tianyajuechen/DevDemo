@@ -156,6 +156,8 @@
 
         <activity android:name=".activity.packageinfo.PackageInfoActivity"/>
 
+        <activity android:name=".activity.paging.PagingTestActivity"/>
+
         <receiver
             android:name=".activity.sms.SmsBroadcastReceiver"
             android:enabled="true"

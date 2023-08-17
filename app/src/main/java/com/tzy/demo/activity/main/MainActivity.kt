@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.tzy.demo.R
 import com.tzy.demo.activity.animator.AnimatorActivity
 import com.tzy.demo.activity.base.BaseActivity
+import com.tzy.demo.activity.callshow.CallShowActivity
 import com.tzy.demo.activity.camera.CameraActivity
 import com.tzy.demo.activity.downloadprogress.OkhttpDownloadActivity
 import com.tzy.demo.activity.js.TestJsActivity
@@ -53,8 +54,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun getFunctionList() = arrayListOf(
         MainItemBean("Scheme测试", SchemeTestActivity::class.java),
-        MainItemBean("对象序列化测试", SerializeTestActivity::class.java),
         MainItemBean("动态壁纸", WallpaperActivity::class.java),
+        MainItemBean("来电监听", CallShowActivity::class.java),
         MainItemBean("测试刷新", TestRefreshActivity::class.java),
         MainItemBean("动画", AnimatorActivity::class.java),
         MainItemBean("获取已安装应用", PackageInfoActivity::class.java),
@@ -69,6 +70,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         MainItemBean("MultiRecyclerView", MultiRecyclerViewActivity::class.java),
         MainItemBean("TabLayout", TabLayoutActivity::class.java),
         MainItemBean("任务栈测试", TaskA1Activity::class.java),
+        MainItemBean("对象序列化测试", SerializeTestActivity::class.java),
         MainItemBean("Web", CommonWebviewActivity::class.java),
         MainItemBean("WebSocket", WebSocketActivity::class.java),
         MainItemBean("查看Wifi密码", WiFiPasswordActivity::class.java),

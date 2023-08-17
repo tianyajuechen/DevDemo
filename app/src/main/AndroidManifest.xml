@@ -30,11 +30,23 @@
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
 
-    <permission
-        android:name="com.tzy.demo.permission.JPUSH_MESSAGE"
-        android:protectionLevel="signature"
-        /> <!-- Required  一些系统要求的权限，如访问网络等 -->
-    <uses-permission android:name="com.tzy.demo.permission.JPUSH_MESSAGE"/>
+    <!-- 读取通话记录，用来显示来电人 -->
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <!-- 读取联系人，用来显示来电姓名 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- 监听通话状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 挂断电话需要 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 挂断/接听电话需要 -->
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+    <!-- 悬浮窗 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 前台服务 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- 设置铃声需要 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
 
     <application
         android:name=".application.MyApp"
@@ -158,6 +170,8 @@
 
         <activity android:name=".activity.paging.PagingTestActivity"/>
 
+        <activity android:name=".activity.callshow.CallShowActivity"/>
+
         <receiver
             android:name=".activity.sms.SmsBroadcastReceiver"
             android:enabled="true"
@@ -222,6 +236,25 @@
                 android:resource="@xml/live_wallpaper"
                 />
 
+        </service>
+
+        <service
+            android:name=".activity.callshow.CallListenService"
+            android:exported="true"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".activity.callshow.EmptyNotificationListenService"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+            android:exported="true"
+            >
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
         </service>
 
         <!-- 推必达 -->
